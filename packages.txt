@@ -1,0 +1,46 @@
+# browser
+chromium
+
+# wallpaper manager for autostart
+# feh --bg-scale /path/to/image.file
+feh
+
+git
+gnome-terminal
+
+# boot loader, show whish system to load
+grub
+
+# login screen
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+
+# processes monitor
+gnome-system-monitor
+
+# file manager
+nautilus
+
+# for the Internet
+networkmanager
+
+# windows manager
+openbox
+
+# font pack, needed for openbox
+ttf-dejavu
+
+# dock bar, config must have
+tint2
+
+# text editors
+vim
+kwrite
+
+# needed for openbox launch
+xorg-server
+xorg-xinit
+
+# Ctrl + space search for everything
+synapse
