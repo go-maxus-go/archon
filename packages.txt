@@ -5,7 +5,7 @@ chromium
 # feh --bg-scale /path/to/image.file
 feh
 
-git
+# terminal
 gnome-terminal
 
 # boot loader, show whish system to load
@@ -13,8 +13,8 @@ grub
 
 # login screen
 lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
+lightdm-gtk-greeter # ?
+lightdm-gtk-greeter-settings # ?
 
 # processes monitor
 gnome-system-monitor
@@ -29,7 +29,7 @@ networkmanager
 openbox
 
 # font pack, needed for openbox
-ttf-dejavu
+ttf-dejavu # ?
 
 # dock bar, config must have
 tint2
@@ -47,3 +47,4 @@ synapse
 
 # other
 openssh
+git
