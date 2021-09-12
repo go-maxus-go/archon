@@ -1,0 +1,26 @@
+[user]
+    name = Maxim Sheshukov
+    email = sheshukovmaxim@gmail.com
+[alias]
+    st = status
+    stu = status -u
+    br = branch
+    rb = rebase
+    lgf = log --pretty --graph --oneline
+    lgfa = log --all --pretty --graph --oneline
+    lg = lgf -n 35
+    lga = lgfa -n 35
+    cp = cherry-pick
+    co = checkout
+    ci = commit
+    cia = commit -a
+    cir = commit --amend
+    cim = commit -m
+    cif = commit --amend --no-edit
+    ciam = commit -a -m
+    ciaf = commit -a --amend --no-edit
+    df = diff
+    dfc = diff --cached
+[core]
+    autocrlf = true
+    whitespace = cr-at-eol
