@@ -46,5 +46,6 @@ xorg-xinit
 synapse
 
 # other
-openssh
+openssh # for ssh-keygen and more
 git
+xorg-setxkbmap # switch keyboard layout with caps, see openbox/autostart

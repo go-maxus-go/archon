@@ -1,3 +1,4 @@
 feh --bg-scale ~/.config/wallpaper.jpg &
 tint2 &
 synapse &
+setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
