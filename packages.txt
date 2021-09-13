@@ -50,3 +50,4 @@ openssh # for ssh-keygen and more
 git
 xorg-setxkbmap # switch keyboard layout with caps, see openbox/autostart
 xrandr # set display resolution, xrandr --output DisplayName --scale 1.25x1.25
+gsimplecal # a simple calender for tint2
