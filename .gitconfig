@@ -22,5 +22,4 @@
     df = diff
     dfc = diff --cached
 [core]
-    autocrlf = true
     whitespace = cr-at-eol
