@@ -24,6 +24,7 @@ nautilus
 
 # for the Internet
 networkmanager
+nm-connection-editor # gui
 
 # windows manager
 openbox
