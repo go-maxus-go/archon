@@ -310,13 +310,11 @@
   </keybind>
 
   <!-- My binds -->
-  <keybind key="W-Up">
+  <!-- Windows movement -->
+  <keybind key="C-W-Up">
     <action name="ToggleMaximize"/>
   </keybind>
-  <keybind key="W-Right">
-    <action name="MoveToEdge"><direction>east</direction></action>
-  </keybind>
-  <keybind key="W-Down">
+  <keybind key="C-W-Down">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>
@@ -325,7 +323,7 @@
       <y>center</y>
     </action>
   </keybind>
-  <keybind key="W-Left">
+  <keybind key="C-W-Left">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>
@@ -334,13 +332,25 @@
       <y>0</y>
     </action>
   </keybind>
-  <keybind key="W-Right">
+  <keybind key="C-W-Right">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>
       <height>100%</height>
       <x>50%</x>
       <y>0</y>
+    </action>
+  </keybind>
+
+  <!-- Sound control -->
+  <keybind key="W-Up">
+    <action name="Execute">
+      <command>sh ~/.config/openbox/scripts/volumeup.sh</command>
+    </action>
+  </keybind>
+  <keybind key="W-Down">
+    <action name="Execute">
+      <command>sh ~/.config/openbox/scripts/volumedown.sh</command>
     </action>
   </keybind>
 </keyboard>
