@@ -399,6 +399,13 @@
   <keybind key="W-m">
     <action name="ShowMenu"><menu>root-menu</menu></action>
   </keybind>
+
+  <!-- System monitor -->
+  <keybind key="C-A-Delete">
+    <action name="Execute">
+      <command>gnome-system-monitor</command>
+    </action>
+  </keybind>
 </keyboard>
 
 <mouse>
