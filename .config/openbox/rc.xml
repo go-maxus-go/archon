@@ -311,19 +311,60 @@
 
   <!-- My binds -->
   <!-- Windows movement -->
-  <keybind key="C-W-Up">
-    <action name="ToggleMaximize"/>
-  </keybind>
-  <keybind key="C-W-Down">
-    <action name="Unmaximize"/>
-    <action name="MoveResizeTo">
-      <width>50%</width>
-      <height>50%</height>
-      <x>center</x>
-      <y>center</y>
+  <keybind key="W-A-Up">
+    <action name="If">
+    <query>
+      <iconified>yes</iconified>
+    </query>
+    <then>
+      <action name="ForEach">
+        <desktop>current</desktop>
+        <iconified>yes</iconified>
+        <then>
+          <action name="Uniconify"/>
+        </then>
+      </action>
+    </then>
+    <else>
+      <action name="Maximize"/>
+    </else>
     </action>
   </keybind>
-  <keybind key="C-W-Left">
+
+  <keybind key="W-A-Down">
+    <action name="If">
+    <query>
+      <maximized>yes</maximized>
+    </query>
+    <then>
+      <action name="Unmaximize"/>
+    </then>
+    <else>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>center</x>
+        <y>center</y>
+      </action>
+    </else>
+    </action>
+  </keybind>
+
+  <keybind key="W-C-Down">
+    <action name="If">
+    <query>
+      <maximized>yes</maximized>
+    </query>
+    <then>
+      <action name="Unmaximize"/>
+    </then>
+    <else>
+      <action name="Iconify"/>
+    </else>
+    </action>
+  </keybind>
+
+  <keybind key="W-A-Left">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>
@@ -332,7 +373,7 @@
       <y>0</y>
     </action>
   </keybind>
-  <keybind key="C-W-Right">
+  <keybind key="W-A-Right">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>

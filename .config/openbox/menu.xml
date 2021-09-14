@@ -356,10 +356,6 @@
       </startupnotify>
     </action>
   </item>
-  <separator />
-  <item label="Reconfigure Openbox">
-    <action name="Reconfigure" />
-  </item>
 </menu>
 
 <menu id="root-menu" label="Openbox 3">
@@ -374,6 +370,10 @@
   <menu id="apps-fileman-menu"/>
   <separator label="System" />
   <menu id="system-menu"/>
+  <separator />
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
   <separator />
   <item label="Log Out">
     <action name="Exit">
