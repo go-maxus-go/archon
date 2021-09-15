@@ -2,6 +2,6 @@
 
 sudo pacman --noconfirm -S python
 
-python deploy.py
+python install_packages.py
 
 cp user/. ~/. -r
