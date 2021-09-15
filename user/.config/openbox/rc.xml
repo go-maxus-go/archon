@@ -192,47 +192,6 @@
 <keyboard>
   <chainQuitKey>C-g</chainQuitKey>
 
-  <!-- Keybindings for desktop switching -->
-  <keybind key="C-A-Left">
-    <action name="GoToDesktop"><to>left</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-A-Right">
-    <action name="GoToDesktop"><to>right</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-A-Up">
-    <action name="GoToDesktop"><to>up</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-A-Down">
-    <action name="GoToDesktop"><to>down</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Left">
-    <action name="SendToDesktop"><to>left</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Right">
-    <action name="SendToDesktop"><to>right</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Up">
-    <action name="SendToDesktop"><to>up</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Down">
-    <action name="SendToDesktop"><to>down</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="W-F1">
-    <action name="GoToDesktop"><to>1</to></action>
-  </keybind>
-  <keybind key="W-F2">
-    <action name="GoToDesktop"><to>2</to></action>
-  </keybind>
-  <keybind key="W-F3">
-    <action name="GoToDesktop"><to>3</to></action>
-  </keybind>
-  <keybind key="W-F4">
-    <action name="GoToDesktop"><to>4</to></action>
-  </keybind>
-  <keybind key="W-d">
-    <action name="ToggleShowDesktop"/>
-  </keybind>
-
   <!-- Keybindings for windows -->
   <keybind key="A-F4">
     <action name="Close"/>
@@ -311,27 +270,11 @@
 
   <!-- My binds -->
   <!-- Windows movement -->
-  <keybind key="W-A-Up">
-    <action name="If">
-    <query>
-      <iconified>yes</iconified>
-    </query>
-    <then>
-      <action name="ForEach">
-        <desktop>current</desktop>
-        <iconified>yes</iconified>
-        <then>
-          <action name="Uniconify"/>
-        </then>
-      </action>
-    </then>
-    <else>
-      <action name="Maximize"/>
-    </else>
-    </action>
+  <keybind key="W-Up">
+    <action name="Maximize"/>
   </keybind>
 
-  <keybind key="W-A-Down">
+  <keybind key="W-Down">
     <action name="If">
     <query>
       <maximized>yes</maximized>
@@ -349,7 +292,6 @@
     </else>
     </action>
   </keybind>
-
   <keybind key="W-C-Down">
     <action name="If">
     <query>
@@ -364,7 +306,7 @@
     </action>
   </keybind>
 
-  <keybind key="W-A-Left">
+  <keybind key="W-Left">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>
@@ -373,7 +315,7 @@
       <y>0</y>
     </action>
   </keybind>
-  <keybind key="W-A-Right">
+  <keybind key="W-Right">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
       <width>50%</width>
@@ -384,12 +326,12 @@
   </keybind>
 
   <!-- Sound control -->
-  <keybind key="W-Up">
+  <keybind key="C-A-Up">
     <action name="Execute">
       <command>sh ~/.config/openbox/scripts/volumeup.sh</command>
     </action>
   </keybind>
-  <keybind key="W-Down">
+  <keybind key="C-A-Down">
     <action name="Execute">
       <command>sh ~/.config/openbox/scripts/volumedown.sh</command>
     </action>
@@ -405,6 +347,35 @@
     <action name="Execute">
       <command>gnome-system-monitor</command>
     </action>
+  </keybind>
+
+  <!-- Keybindings for desktop switching -->
+  <keybind key="W-h">
+    <action name="GoToDesktop"><to>left</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="W-l">
+    <action name="GoToDesktop"><to>right</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="W-k">
+    <action name="GoToDesktop"><to>up</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="W-j">
+    <action name="GoToDesktop"><to>down</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="S-W-h">
+    <action name="SendToDesktop"><to>left</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="S-W-l">
+    <action name="SendToDesktop"><to>right</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="S-W-k">
+    <action name="SendToDesktop"><to>up</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="S-W-j">
+    <action name="SendToDesktop"><to>down</to><wrap>no</wrap></action>
+  </keybind>
+  <keybind key="W-d">
+    <action name="ToggleShowDesktop"/>
   </keybind>
 </keyboard>
 
