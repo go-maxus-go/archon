@@ -13,6 +13,7 @@ grub
 
 # login screen
 lightdm
+$ sudo systemctl enable lightdm
 lightdm-gtk-greeter # ?
 lightdm-gtk-greeter-settings # ?
 
@@ -38,6 +39,10 @@ tint2
 # text editors
 vim
 kwrite
+
+# Audio
+pulseaudio # server
+pavucontrol # controller
 
 # needed for openbox launch
 xorg-server
