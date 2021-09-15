@@ -3,3 +3,4 @@ tint2 &
 synapse &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
 dunst &
+setlayout 1 1 4 0 &
