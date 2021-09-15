@@ -14,4 +14,4 @@ for line in lines:
         packages.append(line)
 
 packages = " ".join(packages)
-os.system("sudo pacman --noconfirm -S {1}".format(packages))
+os.system("sudo pacman --noconfirm -S {0}".format(packages))
