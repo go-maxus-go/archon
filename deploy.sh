@@ -1,8 +1,9 @@
 #!/bin/bash
 
 
-sudo pacman --noconfirm -S python
+sudo pacman --noconfirm -Syyu
 
+sudo pacman --noconfirm -S python
 python install_packages.py
 
 dir=$(cd "$(dirname "$0")" && pwd)
