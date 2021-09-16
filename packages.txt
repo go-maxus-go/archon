@@ -38,7 +38,7 @@ tint2
 
 # text editors
 vim
-kwrite
+kate
 
 # Audio
 pulseaudio # server
