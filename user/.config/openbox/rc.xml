@@ -236,7 +236,7 @@
   </keybind>
 
   <!-- Keybindings for window switching with the arrow keys -->
-  <keybind key="W-S-Right">
+<!--  <keybind key="W-S-Right">
     <action name="DirectionalCycleWindows">
       <direction>right</direction>
     </action>
@@ -255,7 +255,7 @@
     <action name="DirectionalCycleWindows">
       <direction>down</direction>
     </action>
-  </keybind>
+  </keybind>-->
 
   <!-- Keybindings for running applications -->
   <keybind key="W-e">
@@ -272,6 +272,16 @@
   <!-- Windows movement -->
   <keybind key="W-Up">
     <action name="Maximize"/>
+  </keybind>
+  <keybind key="W-S-Up">
+    <action name="PreviousWindow">
+      <interactive>no</interactive>
+      <finalactions>
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </finalactions>
+    </action>
   </keybind>
 
   <keybind key="W-Down">
@@ -292,18 +302,8 @@
     </else>
     </action>
   </keybind>
-  <keybind key="W-C-Down">
-    <action name="If">
-    <query>
-      <maximized>yes</maximized>
-    </query>
-    <then>
-      <action name="Unmaximize"/>
-    </then>
-    <else>
-      <action name="Iconify"/>
-    </else>
-    </action>
+  <keybind key="W-S-Down">
+    <action name="Iconify"/>
   </keybind>
 
   <keybind key="W-Left">
@@ -315,6 +315,13 @@
       <y>0</y>
     </action>
   </keybind>
+  <keybind key="W-S-Left">
+    <action name="Unmaximize"/>
+    <action name="MoveToEdge">
+      <direction>west</direction>
+    </action>
+  </keybind>
+
   <keybind key="W-Right">
     <action name="Unmaximize"/>
     <action name="MoveResizeTo">
@@ -322,6 +329,12 @@
       <height>100%</height>
       <x>50%</x>
       <y>0</y>
+    </action>
+  </keybind>
+  <keybind key="W-S-Right">
+    <action name="Unmaximize"/>
+    <action name="MoveToEdge">
+      <direction>east</direction>
     </action>
   </keybind>
 
