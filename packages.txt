@@ -1,5 +1,5 @@
 # browser
-chromium
+# chromium # changed to aur/brave
 
 # wallpaper manager for autostart
 # feh --bg-scale /path/to/image.file
@@ -61,3 +61,4 @@ gsimplecal # a simple calender for tint2
 dunst # notification deamon, config is needed
 xdotool # is used by tint2, allows to emulate keys press
 catfish # search tool
+file-roller # archive manager
