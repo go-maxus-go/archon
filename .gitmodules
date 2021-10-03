@@ -1,0 +1,3 @@
+[submodule "aur/brave"]
+	path = aur/brave
+	url = https://aur.archlinux.org/brave-bin.git
