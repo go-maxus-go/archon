@@ -1,13 +1,14 @@
 #!/bin/bash
 
-
-sudo pacman --noconfirm -Syyu
-
+sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm -S python
-python install_packages.py
 
 dir=$(cd "$(dirname "$0")" && pwd)
+cd $dir
+git submodule update --init --recursive
+cd -
 
-cp $dir/user/. ~/. -r
-
-sh $dir/setlayout/deploy.sh
+sudo python $dir/install_packages.py
+sh $dir/aur/install_aur_packages.sh
+sudo sh $dir/setlayout/deploy.sh
+sh $dir/copy_configs.sh

@@ -22,7 +22,7 @@ lightdm-gtk-greeter-settings # ?
 gnome-system-monitor
 
 # file manager
-thunar
+pcmanfm
 
 # for the Internet
 networkmanager

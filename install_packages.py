@@ -3,7 +3,10 @@ import os
 packages = []
 commands = []
 
-file = open("packages.txt", "r")
+file_path = os.path.realpath(__file__)
+dir = os.path.dirname(file_path)
+
+file = open(dir + "/" + "packages.txt", "r")
 data = file.read()
 file.close()
 
