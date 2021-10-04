@@ -63,4 +63,4 @@ xdotool # is used by tint2, allows to emulate keys press
 catfish # search tool
 file-roller # archive manager
 gnome-themes-extra # Adwaita widget theme
-oxygen-icons-svg # Crule icon theme
+cutefish-icons # Crule icon theme
