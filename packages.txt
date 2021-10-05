@@ -5,7 +5,7 @@
 nitrogen
 
 # terminal
-gnome-terminal
+xfce4-terminal
 bash-completion # terminal auto completion
 
 # boot loader, show whish system to load
