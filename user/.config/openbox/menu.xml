@@ -8,6 +8,11 @@
       <command>file-roller</command>
     </action>
   </item>
+  <item label="Calculator">
+    <action name="Execute">
+      <command>mate-calc</command>
+    </action>
+  </item>
   <item label="Catfish">
     <action name="Execute">
       <command>catfish</command>
