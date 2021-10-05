@@ -13,6 +13,11 @@
       <command>catfish</command>
     </action>
   </item>
+  <item label="Nomacs">
+    <action name="Execute">
+      <command>nomacs</command>
+    </action>
+  </item>
 </menu>
 
 <menu id="appearance-menu" label="Appearance">
