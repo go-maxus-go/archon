@@ -56,6 +56,8 @@ synapse
 base-devel # for aur
 openssh # for ssh-keygen and more
 git
+lxappearance # openbox look and feel
+obconf # openbox configuration manager
 xorg-setxkbmap # switch keyboard layout with caps, see openbox/autostart
 xorg-xrandr # set display resolution, xrandr --output DisplayName --scale 1.25x1.25
 gsimplecal # a simple calender for tint2
@@ -65,3 +67,4 @@ catfish # search tool
 file-roller # archive manager
 gnome-themes-extra # Adwaita widget theme
 cutefish-icons # Crule icon theme
+pinta # simple graphic editor

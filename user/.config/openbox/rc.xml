@@ -76,38 +76,38 @@
     </font>
     <font place="MenuHeader">
       <name>sans</name>
-      <size>9</size>
+      <size>12</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
       <name>sans</name>
-      <size>9</size>
+      <size>12</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>sans</name>
-      <size>9</size>
+      <size>12</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>sans</name>
-      <size>9</size>
+      <size>12</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
@@ -348,17 +348,17 @@
     <!-- Terminal -->
     <keybind key="C-A-t">
       <action name="Execute">
-        <command>gnome-terminal</command>
+        <command>sh ~/.config/openbox/scripts/open_terminal.sh</command>
       </action>
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>gnome-terminal</command>
+        <command>sh ~/.config/openbox/scripts/open_terminal.sh</command>
       </action>
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>gnome-terminal</command>
+        <command>sh ~/.config/openbox/scripts/open_terminal.sh</command>
       </action>
     </keybind>
     <!-- Keybindings for desktop switching -->
