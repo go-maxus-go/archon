@@ -2,8 +2,7 @@
 # chromium # changed to aur/brave
 
 # wallpaper manager for autostart
-# feh --bg-scale /path/to/image.file
-feh
+nitrogen
 
 # terminal
 gnome-terminal

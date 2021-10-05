@@ -21,6 +21,11 @@
 </menu>
 
 <menu id="appearance-menu" label="Appearance">
+  <item label="Background">
+    <action name="Execute">
+      <command>nitrogen</command>
+    </action>
+  </item>
   <item label="Look and Feel">
     <action name="Execute">
       <command>lxappearance</command>

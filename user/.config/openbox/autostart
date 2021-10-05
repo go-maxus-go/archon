@@ -1,6 +1,14 @@
-feh --bg-scale ~/.config/wallpaper.jpg &
 tint2 &
 synapse &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
 dunst &
 setlayout 0 3 3 0 &
+
+# restore wallpaper if config folder exists
+user_home=$(eval echo "~$different_user")
+if [ -f "$user_home/.config/nitrogen/bg-saved.cfg" ]
+then
+    nitrogen --restore &
+else
+    nitrogen --set-zoom-fill ~/.config/archon/wallpapers/default.jpg &
+fi
