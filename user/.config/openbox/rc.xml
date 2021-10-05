@@ -325,12 +325,12 @@
     <!-- Sound control -->
     <keybind key="C-A-Up">
       <action name="Execute">
-        <command>sh ~/.config/openbox/scripts/volumeup.sh</command>
+        <command>sh ~/.config/archon/scripts/volumeup.sh</command>
       </action>
     </keybind>
     <keybind key="C-A-Down">
       <action name="Execute">
-        <command>sh ~/.config/openbox/scripts/volumedown.sh</command>
+        <command>sh ~/.config/archon/scripts/volumedown.sh</command>
       </action>
     </keybind>
     <!-- Start menu -->
@@ -348,17 +348,17 @@
     <!-- Terminal -->
     <keybind key="C-A-t">
       <action name="Execute">
-        <command>sh ~/.config/openbox/scripts/open_terminal.sh</command>
+        <command>sh ~/.config/archon/scripts/open_terminal.sh</command>
       </action>
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>sh ~/.config/openbox/scripts/open_terminal.sh</command>
+        <command>sh ~/.config/archon/scripts/open_terminal.sh</command>
       </action>
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>sh ~/.config/openbox/scripts/open_terminal.sh</command>
+        <command>sh ~/.config/archon/scripts/open_terminal.sh</command>
       </action>
     </keybind>
     <!-- Keybindings for desktop switching -->
