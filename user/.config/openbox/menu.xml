@@ -18,9 +18,9 @@
       <command>catfish</command>
     </action>
   </item>
-  <item label="Nomacs">
+  <item label="Image Viewer">
     <action name="Execute">
-      <command>nomacs</command>
+      <command>eog</command>
     </action>
   </item>
 </menu>

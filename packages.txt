@@ -67,5 +67,5 @@ file-roller # archive manager
 gnome-themes-extra # Adwaita widget theme
 cutefish-icons # Crule icon theme
 pinta # simple graphic editor
-nomacs # image viewer
+eog # Eye of gnome image viewer
 mate-calc # calculator
