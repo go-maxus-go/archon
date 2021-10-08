@@ -1,4 +1,4 @@
-set mainfont {{DejaVu Sans Mono} 12}
+set mainfont {{Liberation Mono} 12}
 set textfont {{Droid Sans Mono} 12}
 set uifont {{DejaVu Sans} 10 bold}
 set tabstop 4
@@ -53,12 +53,12 @@ set linkfgcolor blue
 set circleoutlinecolor black
 set diffbgcolors {"#fff3f3" "#f0fff0"}
 set web_browser xdg-open
-set geometry(main) 1916x1012+0+0
+set geometry(main) 1916x1010+0+0
 set geometry(state) normal
 set geometry(topwidth) 1916
-set geometry(topheight) 369
+set geometry(topheight) 346
 set geometry(pwsash0) "1417 1"
 set geometry(pwsash1) "1757 1"
 set geometry(botwidth) 1240
-set geometry(botheight) 638
+set geometry(botheight) 659
 set permviews {}
