@@ -13,14 +13,16 @@
   "size_bottom" : 120,
   "tab_left" : "Tabs",
   "recent_files" : [
+    "~/.bashrc",
+    "~/archon/packages.txt",
+    "~/.config/git/gitk",
+    "~/.config/openbox/menu.xml",
+    "~/.config/cudatext/settings_default/default.json",
     "~/.config/archon/scripts/open_text_editor.sh",
     "~/.config/archon/scripts/open_file_manager.sh",
-    "~/.config/cudatext/settings_default/default.json",
     "~/.config/cudatext/settings/user.json",
     "~/archon/install_packages.py",
-    "~/archon/install_help.txt",
-    "~/archon/copy_configs.sh",
-    "~/archon/.gitignore"
+    "~/archon/install_help.txt"
   ],
   "list_console" : [
   ],
@@ -41,10 +43,19 @@
   "last_cmd" : 0,
   "groups" : 1,
   "gr" : {
-    "panel" : "22,28",
-    "pages" : "100,100,22,28,22,28,22,28,22,28,22,28,"
+    "panel" : "20,28",
+    "pages" : "100,100,20,28,20,28,20,28,20,28,20,28,"
   },
   "list_find" : [
+    "git",
+    "kate",
+    "nemo",
+    "pcma",
+    "eog",
+    "gnome",
+    "pcmanfm",
+    "file",
+    "pcman",
     "menu"
   ],
   "list_replace" : [

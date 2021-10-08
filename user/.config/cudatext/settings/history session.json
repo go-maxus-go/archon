@@ -1,11 +1,11 @@
 {
   "groups" : 1,
   "gr" : {
-    "panel" : "22,28",
-    "pages" : "100,100,22,28,22,28,22,28,22,28,22,28,"
+    "panel" : "20,28",
+    "pages" : "100,100,20,28,20,28,20,28,20,28,20,28,"
   },
   "tab_index" : {
-    "g0" : 1,
+    "g0" : 3,
     "g1" : 0,
     "g2" : 0,
     "g3" : 0,
@@ -42,5 +42,28 @@
     "tab_size" : 4,
     "tab_spaces" : false,
     "crt" : "8,0,-1,-1,"
+  },
+  "002" : {
+    "modified" : false,
+    "file" : "~/archon/packages.txt",
+    "group" : 1,
+    "kind" : "",
+    "enc" : "UTF-8",
+    "top" : 28,
+    "tab_size" : 4,
+    "tab_spaces" : false,
+    "crt" : "9,34,-1,-1,"
+  },
+  "003" : {
+    "modified" : false,
+    "file" : "~/.bashrc",
+    "group" : 1,
+    "kind" : "",
+    "lexer" : "Bash script",
+    "enc" : "UTF-8",
+    "top" : 80,
+    "tab_size" : 4,
+    "tab_spaces" : false,
+    "crt" : "16,93,-1,-1,"
   }
 }
