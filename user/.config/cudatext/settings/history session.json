@@ -1,0 +1,46 @@
+{
+  "groups" : 1,
+  "gr" : {
+    "panel" : "22,28",
+    "pages" : "100,100,22,28,22,28,22,28,22,28,22,28,"
+  },
+  "tab_index" : {
+    "g0" : 1,
+    "g1" : 0,
+    "g2" : 0,
+    "g3" : 0,
+    "g4" : 0,
+    "g5" : 0,
+    "g_active" : 0
+  },
+  "panels" : {
+    "side_show" : true,
+    "side_panel" : "Tabs",
+    "side_size" : 200,
+    "bottom_show" : false,
+    "bottom_panel" : "",
+    "bottom_size" : 120
+  },
+  "000" : {
+    "modified" : false,
+    "file" : "~/.config/archon/scripts/open_file_manager.sh",
+    "group" : 1,
+    "kind" : "",
+    "lexer" : "Bash script",
+    "enc" : "UTF-8",
+    "tab_size" : 4,
+    "tab_spaces" : false,
+    "crt" : "4,0,-1,-1,"
+  },
+  "001" : {
+    "modified" : false,
+    "file" : "~/.config/archon/scripts/open_text_editor.sh",
+    "group" : 1,
+    "kind" : "",
+    "lexer" : "Bash script",
+    "enc" : "UTF-8",
+    "tab_size" : 4,
+    "tab_spaces" : false,
+    "crt" : "8,0,-1,-1,"
+  }
+}

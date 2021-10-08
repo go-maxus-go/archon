@@ -1,0 +1,27 @@
+{
+  "dlg_preferences": {
+    "tree_w": 219,
+    "descr_memo_h": 120,
+    "filter_visible": true,
+    "sort_column": "Option",
+    "subsets": {
+      "df.": {
+        "filter_str": "",
+        "filter_history": [
+          "search"
+        ],
+        "selected_option": "ui_menu_show"
+      }
+    },
+    "columns": [
+      [
+        "Option",
+        70
+      ],
+      [
+        "Value",
+        100
+      ]
+    ]
+  }
+}

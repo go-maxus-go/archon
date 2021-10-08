@@ -21,7 +21,7 @@ lightdm-gtk-greeter-settings # ?
 gnome-system-monitor
 
 # file manager
-pcmanfm
+nemo
 
 # for the Internet
 networkmanager
@@ -38,7 +38,7 @@ tint2
 
 # text editors
 vim
-kate
+# cudatext # from aur
 
 # Audio
 pulseaudio # server
@@ -67,5 +67,5 @@ file-roller # archive manager
 gnome-themes-extra # Adwaita widget theme
 cutefish-icons # Crule icon theme
 pinta # simple graphic editor
-eog # Eye of gnome image viewer
+nomacs # Image viewer
 mate-calc # calculator

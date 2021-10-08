@@ -1,0 +1,52 @@
+{
+  "sync_choose_themes" : true,
+  "pos" : {
+    "main_max" : false,
+    "main" : "960,0,956,1042",
+    "savetabs" : "0,0,891,350"
+  },
+  "show_sidepanel" : true,
+  "show_bottom" : false,
+  "float_side" : false,
+  "float_bottom" : false,
+  "size_side" : 200,
+  "size_bottom" : 120,
+  "tab_left" : "Tabs",
+  "recent_files" : [
+    "~/.config/archon/scripts/open_text_editor.sh",
+    "~/.config/archon/scripts/open_file_manager.sh",
+    "~/.config/cudatext/settings_default/default.json",
+    "~/.config/cudatext/settings/user.json",
+    "~/archon/install_packages.py",
+    "~/archon/install_help.txt",
+    "~/archon/copy_configs.sh",
+    "~/archon/.gitignore"
+  ],
+  "list_console" : [
+  ],
+  "finder" : {
+    "regex" : false,
+    "case" : false,
+    "words" : false,
+    "back" : false,
+    "confirm" : false,
+    "wrap" : false,
+    "insel" : false,
+    "tokens" : 0,
+    "mline" : false,
+    "hi" : false
+  },
+  "lang" : "",
+  "session" : "history session.json",
+  "last_cmd" : 0,
+  "groups" : 1,
+  "gr" : {
+    "panel" : "22,28",
+    "pages" : "100,100,22,28,22,28,22,28,22,28,22,28,"
+  },
+  "list_find" : [
+    "menu"
+  ],
+  "list_replace" : [
+  ]
+}

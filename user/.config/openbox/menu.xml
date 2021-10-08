@@ -18,9 +18,9 @@
       <command>catfish</command>
     </action>
   </item>
-  <item label="Image Viewer">
+  <item label="Nomacs">
     <action name="Execute">
-      <command>eog</command>
+      <command>nomacs</command>
     </action>
   </item>
 </menu>
@@ -44,9 +44,9 @@
 </menu>
 
 <menu id="editors-menu" label="Editors">
-  <item label="Kate">
+  <item label="CudaText">
     <action name="Execute">
-      <command>kate</command>
+      <command>cudatext</command>
     </action>
   </item>
   <item label="Pinta">
