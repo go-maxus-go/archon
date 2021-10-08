@@ -1,3 +1,6 @@
 [submodule "aur/brave"]
 	path = aur/brave
 	url = https://aur.archlinux.org/brave-bin.git
+[submodule "aur/cudatext"]
+	path = aur/cudatext
+	url = https://aur.archlinux.org/cudatext-qt5-bin.git
