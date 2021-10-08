@@ -114,3 +114,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 bind 'set completion-ignore-case on'
+
+alias gg=gitk

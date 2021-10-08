@@ -32,6 +32,7 @@ openbox
 
 # font pack, needed for openbox
 ttf-dejavu # ?
+ttf-droid
 
 # dock bar, config must have
 tint2
@@ -55,6 +56,7 @@ synapse
 base-devel # for aur
 openssh # for ssh-keygen and more
 git
+tk # for gitk
 lxappearance # openbox look and feel
 obconf # openbox configuration manager
 xorg-setxkbmap # switch keyboard layout with caps, see openbox/autostart
