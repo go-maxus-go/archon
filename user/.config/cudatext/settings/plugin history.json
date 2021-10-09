@@ -3,14 +3,16 @@
     "tree_w": 219,
     "descr_memo_h": 120,
     "filter_visible": true,
-    "sort_column": "Option",
+    "sort_column": "-Option",
     "subsets": {
       "df.": {
-        "filter_str": "",
+        "filter_str": "@View/Unprinted",
         "filter_history": [
-          "search"
+          "@View",
+          "@View/Minimap",
+          "@View/Unprinted"
         ],
-        "selected_option": "ui_menu_show"
+        "selected_option": "unprinted_show"
       }
     },
     "columns": [

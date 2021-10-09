@@ -7,5 +7,8 @@
   "ui_font_output_size__linux" : 11,
   "font_name__linux" : "Droid Sans Mono",
   "font_size__linux" : 12,
-  "ui_menu_show" : false
+  "ui_menu_show" : false,
+    "minimap_show": true,
+    "unprinted_show": true,
+    "unprinted_content": "s",
 }
