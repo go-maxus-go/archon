@@ -11,5 +11,6 @@
   "minimap_show" : true,
   "unprinted_show" : true,
   "unprinted_content" : "s",
-  "ui_toolbar_show" : false
+  "ui_toolbar_show" : false,
+    "ui_statusbar_panels": "caret,C,180|enc,C,125|ends,A,45|lexer,C,140|tabsize,A,75|selmode,A,15|msg,L,4000|zoom,100",
 }

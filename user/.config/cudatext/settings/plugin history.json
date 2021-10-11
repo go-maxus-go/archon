@@ -6,11 +6,11 @@
     "sort_column": "-Option",
     "subsets": {
       "df.": {
-        "filter_str": "",
+        "filter_str": "pane",
         "filter_history": [
-          "color"
+          "pane"
         ],
-        "selected_option": "zebra_step"
+        "selected_option": "ui_statusbar_panels"
       }
     },
     "columns": [
