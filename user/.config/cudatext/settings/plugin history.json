@@ -6,13 +6,11 @@
     "sort_column": "-Option",
     "subsets": {
       "df.": {
-        "filter_str": "@View/Unprinted",
+        "filter_str": "",
         "filter_history": [
-          "@View",
-          "@View/Minimap",
-          "@View/Unprinted"
+          "color"
         ],
-        "selected_option": "unprinted_show"
+        "selected_option": "zebra_step"
       }
     },
     "columns": [
@@ -25,5 +23,19 @@
         100
       ]
     ]
+  },
+  "cd_kv_dlg": {
+    "Find in Files 4": {
+      "x": 1191,
+      "y": 215,
+      "w": 664,
+      "h": 590
+    },
+    "Extra context lines": {
+      "x": 1350,
+      "y": 476,
+      "w": 175,
+      "h": 90
+    }
   }
 }
