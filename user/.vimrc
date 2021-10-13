@@ -30,7 +30,14 @@ set visualbell
 highlight ColorColumn ctermbg=23
 set colorcolumn=81
 
-set listchars=space:·,tab:>·
+"encoding"
+set ff=dos
+set encoding=utf-8 "The encoding displayed."
+set fileencoding=utf-8 "The encoding written to file."
+scriptencoding utf-8
+
+"Invisible symbols"
+set listchars=space:·,tab:>·
 set list
 set backspace=indent,eol,start
 
@@ -48,11 +55,6 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 set smarttab
-
-"encoding"
-set ff=dos
-set encoding=utf-8  " The encoding displayed.
-set fileencoding=utf-8  " The encoding written to file.""
 
 "Swap ; and : for faster entering in command mode"
 nnoremap ; :
