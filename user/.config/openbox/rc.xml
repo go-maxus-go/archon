@@ -372,6 +372,12 @@
         <command>sh ~/.config/archon/scripts/open_terminal.sh</command>
       </action>
     </keybind>
+    <!-- Screenshot tool -->
+    <keybind key="S-W-s">
+      <action name="Execute">
+        <command>sh ~/.config/archon/scripts/launch_screenshot_tool.sh</command>
+      </action>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="W-h">
       <action name="GoToDesktop">

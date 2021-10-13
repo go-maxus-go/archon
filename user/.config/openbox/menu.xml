@@ -23,6 +23,11 @@
       <command>nomacs</command>
     </action>
   </item>
+  <item label="Screenshot Tool">
+    <action name="Execute">
+      <command>sh ~/.config/archon/scripts/launch_screenshot_tool.sh</command>
+    </action>
+  </item>
 </menu>
 
 <menu id="appearance-menu" label="Appearance">
