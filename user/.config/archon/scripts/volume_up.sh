@@ -1,6 +1,7 @@
 #!/bin/bash
 
-volume="$(pactl list sinks | tr ' ' '\n' | grep -m1 '%' | tr -d '%')"
+sink="$(pactl get-default-sink)"
+volume="$(pactl get-sink-volume $sink | tr ' ' '\n' | grep -m1 '%' | tr -d '%')"
 volume=$(($volume+5))
 
 if [ $volume -gt 125 ]
