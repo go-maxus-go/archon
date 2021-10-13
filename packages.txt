@@ -71,3 +71,4 @@ cutefish-icons # Crule icon theme
 pinta # simple graphic editor
 nomacs # Image viewer
 mate-calc # calculator
+brightnessctl # brightness control tool
