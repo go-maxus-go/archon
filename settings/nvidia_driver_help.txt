@@ -1,0 +1,20 @@
+# works to GeForce 1050
+
+# install drivers and utilities for nvidia
+sudo pacman -S nvidia nvidia-utils nvidia-settings
+
+# install switcher to nvidia video card
+git clone https://aur.archlinux.org/optimus-manager.git
+cd optimus-manager
+makepkg -si
+
+reboot
+
+# switch to nvidia video card
+optimus-manager --switch nvidia
+
+# switch to intel video card
+optimus-manager --switch integrated
+
+# switch to hybrid mode
+optimus-manager --switch hybrid
