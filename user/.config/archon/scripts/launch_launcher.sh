@@ -1,0 +1,1 @@
+rofi -modi drun -show drun -theme $HOME/.config/rofi/config.rasi -scroll-method 1

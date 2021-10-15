@@ -356,6 +356,12 @@
         <command>gnome-system-monitor</command>
       </action>
     </keybind>
+    <!-- Launcher -->
+    <keybind key="W-space">
+      <action name="Execute">
+        <command>sh ~/.config/archon/scripts/launch_launcher.sh</command>
+      </action>
+    </keybind>
     <!-- Terminal -->
     <keybind key="C-A-t">
       <action name="Execute">
