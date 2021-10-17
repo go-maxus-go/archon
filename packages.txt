@@ -52,6 +52,12 @@ xorg-xinit
 # Ctrl + space search for everything
 rofi
 
+# Bluetooth
+bluez
+bluez-utils
+blueman
+$ sudo systemctl enable bluetooth
+
 # other
 base-devel # for aur
 openssh # for ssh-keygen and more

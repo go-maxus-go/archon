@@ -8,6 +8,11 @@
       <command>file-roller</command>
     </action>
   </item>
+  <item label="Bluetooth Manager">
+    <action name="Execute">
+      <command>sh ~/.config/archon/scripts/launch_bluetooth_manager.sh</command>
+    </action>
+  </item>
   <item label="Calculator">
     <action name="Execute">
       <command>mate-calc</command>
