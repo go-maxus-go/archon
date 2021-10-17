@@ -18,6 +18,11 @@
       <command>catfish</command>
     </action>
   </item>
+  <item label="Disks">
+    <action name="Execute">
+      <command>gnome-disks</command>
+    </action>
+  </item>
   <item label="Nomacs">
     <action name="Execute">
       <command>nomacs</command>
