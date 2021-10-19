@@ -77,6 +77,11 @@
       <command>tint2conf</command>
     </action>
   </item>
+  <item label="Display">
+    <action name="Execute">
+      <command>arandr</command>
+    </action>
+  </item>
   <item label="Network">
     <action name="Execute">
       <command>nm-connection-editor</command>
