@@ -33,6 +33,11 @@
       <command>nomacs</command>
     </action>
   </item>
+  <item label="Screenshot Screen">
+    <action name="Execute">
+      <command>sh ~/.config/archon/scripts/make_screenshot.sh</command>
+    </action>
+  </item>
   <item label="Screenshot Tool">
     <action name="Execute">
       <command>sh ~/.config/archon/scripts/launch_screenshot_tool.sh</command>

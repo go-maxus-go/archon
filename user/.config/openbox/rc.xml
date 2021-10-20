@@ -404,6 +404,11 @@
         <command>sh ~/.config/archon/scripts/launch_screenshot_tool.sh</command>
       </action>
     </keybind>
+    <keybind key="Print">
+      <action name="Execute">
+        <command>sh ~/.config/archon/scripts/make_screenshot.sh</command>
+      </action>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="W-h">
       <action name="GoToDesktop">

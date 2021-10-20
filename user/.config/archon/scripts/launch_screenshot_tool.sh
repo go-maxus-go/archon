@@ -1,1 +1,1 @@
-deepin-screenshot
+mkdir -p ~/Screenshots && flameshot gui

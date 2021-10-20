@@ -79,5 +79,5 @@ pinta # simple graphic editor
 nomacs # Image viewer
 mate-calc # calculator
 brightnessctl # brightness control tool
-deepin-screenshot # a screenshot tool
+flameshot # a screenshot tool
 gnome-disk-utility # utils for USB disk formatting
