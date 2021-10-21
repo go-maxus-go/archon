@@ -9,6 +9,7 @@ then
     volume=0
 fi
 
+volume=$(($volume / 5 * 5))
 volume="$volume%"
 
 if [ -z "$(pactl get-sink-mute @DEFAULT_SINK@ | grep no)" ]
