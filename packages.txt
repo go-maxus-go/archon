@@ -55,7 +55,7 @@ rofi
 # Bluetooth
 bluez
 bluez-utils
-blueman
+blueberry
 $ sudo systemctl enable bluetooth
 
 # other
