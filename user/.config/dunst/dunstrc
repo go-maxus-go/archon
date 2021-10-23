@@ -29,7 +29,12 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "500x5+0+0"
+    # geometry = "500x5+0+0"
+    origin = top-left
+    offset = 0x0
+    notification_limit = 2
+    width = (56, 500)
+    height = 300
 
     # Turn on the progess bar
     progress_bar = true
