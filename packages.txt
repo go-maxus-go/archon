@@ -81,3 +81,4 @@ mate-calc # calculator
 brightnessctl # brightness control tool
 flameshot # a screenshot tool
 gnome-disk-utility # utils for USB disk formatting
+okular # pdf reader
