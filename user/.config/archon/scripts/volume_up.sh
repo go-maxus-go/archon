@@ -18,4 +18,5 @@ then
 fi
 
 pactl set-sink-volume @DEFAULT_SINK@ $volume
+paplay $HOME/.config/archon/sounds/audio-volume-change.oga
 dunstify "Volume $volume" -u 0 -r 92347
