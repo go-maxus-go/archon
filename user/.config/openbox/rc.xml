@@ -185,6 +185,9 @@
     <keybind key="W-q">
       <action name="Close"/>
     </keybind>
+    <keybind key="A-q">
+      <action name="Close"/>
+    </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
