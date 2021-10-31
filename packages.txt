@@ -30,9 +30,10 @@ nm-connection-editor # gui
 # windows manager
 openbox
 
-# font pack, needed for openbox
-ttf-dejavu # ?
+# fonts
+ttf-dejavu
 ttf-droid
+noto-fonts-emoji
 
 # dock bar, config must have
 tint2
