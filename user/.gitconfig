@@ -6,8 +6,8 @@
     stu = status -u
     br = branch
     rb = rebase
-    lgf = log --pretty --graph --oneline
-    lgfa = log --all --pretty --graph --oneline
+    lgf = log --graph --pretty=format:'%C(auto)%h%d %s %C(bold black)<%aN>%Creset'
+    lgfa = lgf --all
     lg = lgf -n 35
     lga = lgfa -n 35
     cp = cherry-pick
@@ -21,6 +21,10 @@
     ciaf = commit -a --amend --no-edit
     df = diff
     dfc = diff --cached
+    dt = difftool
+    mt = mergetool
 [core]
+    autocrlf = true
     whitespace = cr-at-eol
+    longpaths = true
     editor = vim
