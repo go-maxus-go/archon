@@ -27,7 +27,8 @@ nemo
 networkmanager
 nm-connection-editor # gui
 
-# windows manager
+# windows managers
+qtile
 openbox
 
 # fonts
