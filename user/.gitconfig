@@ -24,7 +24,5 @@
     dt = difftool
     mt = mergetool
 [core]
-    autocrlf = true
-    whitespace = cr-at-eol
     longpaths = true
-    editor = vim
+    editor = nvim

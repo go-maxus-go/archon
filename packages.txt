@@ -5,7 +5,7 @@
 nitrogen
 
 # terminal
-xfce4-terminal
+kitty
 bash-completion # terminal auto completion
 
 # boot loader, show whish system to load
@@ -40,7 +40,9 @@ noto-fonts-emoji
 tint2
 
 # text editors
-vim
+nvim
+ripgrep # for neovim search
+xsel # for neovim copying to the system clipboard
 # cudatext # from aur
 
 # Audio
