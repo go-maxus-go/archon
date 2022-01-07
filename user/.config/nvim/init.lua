@@ -1,29 +1,35 @@
 pluginsCommand = [[
     Plug 'rakr/vim-one'
-
-    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'kyazdani42/nvim-web-devicons'
-
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'kien/ctrlp.vim'
     Plug 'dyng/ctrlsf.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'tpope/vim-commentary'
     Plug 'karb94/neoscroll.nvim'
+    Plug 'romgrk/barbar.nvim'
 ]]
 vim.cmd('call plug#begin()\n' .. pluginsCommand .. 'call plug#end()')
 
 -- Map leader to Space
 vim.g.mapleader = " "
 
+-- Key map helpers
+local bind =vim.api.nvim_set_keymap
+local silent = { silent = true }
+local noremap = { noremap = true }
+local noremapSilent = { noremap = true, silent = true }
+
 -- Plug 'rakr/vim-one'
 vim.o.termguicolors = true -- 24-bit terminal
 vim.cmd('colorscheme one')
 vim.o.background = 'dark'
 
+-- Plug 'kyazdani42/nvim-web-devicons'
 -- Plug 'kyazdani42/nvim-tree.lua'
 -- g? shows help
 require'nvim-tree'.setup()
-vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeToggle<CR>', {noremap = true})
+bind('n', '<Leader>n', ':NvimTreeToggle<CR>', noremap)
 
 -- Plug 'dyng/ctrlsf.vim'
 --let g:ctrlsf_ackprg = '/usr/bin/rg'
@@ -32,21 +38,21 @@ vim.g.ctrlsf_default_view_mode = 'compact'
 
 -- Plug 'dyng/ctrlsf.vim'
 -- Set default recursive case insensitive search
-vim.api.nvim_set_keymap('n', '<Leader>F', ':CtrlSF -R -I ""<Left>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>f', ':CtrlSFToggle<CR>', {noremap = true})
+bind('n', '<Leader>F', ':CtrlSF -R -I ""<Left>', noremap)
+bind('n', '<Leader>f', ':CtrlSFToggle<CR>', noremap)
 -- Find the word under the cursor
-vim.api.nvim_set_keymap('n', '<Leader>w', '<Plug>CtrlSFCwordPath -W<CR>', {})
+bind('n', '<Leader>w', '<Plug>CtrlSFCwordPath -W<CR>', {})
 vim.o.modifiable = true -- for find and replace
 -- 'p' can be used for to open search preview
 -- find and replace can be done in the result buffer
 -- using a command like :%s/foo/bar/g
 
 -- Plug 'easymotion/vim-easymotion'
-vim.api.nvim_set_keymap('n', '<Leader>m', '<Plug>(easymotion-overwin-f)', {})
+bind('n', '<Leader>m', '<Plug>(easymotion-overwin-f)', {})
 
 -- Plug 'tpope/vim-commentary'
-vim.api.nvim_set_keymap('n', '<C-_>', ':Commentary<CR>', {noremap = true})
-vim.api.nvim_set_keymap('v', '<C-_>', ':Commentary<CR>', {noremap = true})
+bind('n', '<C-_>', ':Commentary<CR>', noremap)
+bind('v', '<C-_>', ':Commentary<CR>', noremap)
 
 -- Plug 'karb94/neoscroll.nvim'
 require('neoscroll').setup({
@@ -62,6 +68,22 @@ scrollConfig['<C-y>'] = {'scroll', {'-3', 'false', '30'}}
 scrollConfig['<C-e>'] = {'scroll', { '3', 'false', '30'}}
 scrollConfig['zz']    = {'zz', {'100'}}
 require('neoscroll.config').set_mappings(scrollConfig)
+
+-- Plug 'romgrk/barbar.nvim'
+vim.g.bufferline = {auto_hide = true}
+
+bind('n', '<A-,>', ':BufferPrevious<CR>', noremapSilent)
+bind('n', '<A-.>', ':BufferNext<CR>', noremapSilent)
+
+bind('n', '<A-<>', ':BufferMovePrevious<CR>', noremapSilent)
+bind('n', '<A->>', ':BufferMoveNext<CR>', noremapSilent)
+
+for i = 1,9 do
+    bind('n', '<A-'..i..'>', ':BufferGoto '..i..'<CR>', noremapSilent)
+end
+bind('n', '<A-0>', ':BufferLast<CR>', noremapSilent)
+
+bind('n', '<A-c>', ':BufferClose<CR>', noremapSilent)
 
 -- General
 vim.o.number = true
@@ -80,20 +102,20 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- Swap ; and : for faster entering in command mode
-vim.api.nvim_set_keymap('n', ';', ':', {noremap = true})
-vim.api.nvim_set_keymap('n', ':', ';', {noremap = true})
+bind('n', ';', ':', noremap)
+bind('n', ':', ';', noremap)
 
 -- Enable copying to system clipboard, xclip is required
-vim.o.clipboard = 'unnamedplus'
+vim.opt.clipboard:append('unnamedplus')
 
 -- Go to normal mode
-vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {noremap = true})
-vim.api.nvim_set_keymap('i', 'kj', '<Esc>', {noremap = true})
+bind('i', 'jk', '<Esc>', noremap)
+bind('i', 'kj', '<Esc>', noremap)
 
 -- Case insensitive search
-vim.api.nvim_set_keymap('n', '/', '/\\c', {noremap = true})
---vim.api.nvim_set_keymap('n', '?', '?\c', {noremap = true})
+bind('n', '/', '/\\c', noremap)
+--bind('n', '?', '?\c', noremap)
 
 -- Prepare for drag and drop a file into a new tab
-vim.api.nvim_set_keymap('n', '<Leader>t', ':tabedit ', {noremap = true})
+bind('n', '<Leader>t', ':tabedit ', noremap)
 -- nnoremap <C-n> :tabnew<CR>
