@@ -43,6 +43,7 @@ tint2
 nvim
 ripgrep # for neovim search
 xsel # for neovim copying to the system clipboard
+ttf-nerd-fonts-symbols # for icons in file browser
 # cudatext # from aur
 
 # Audio
