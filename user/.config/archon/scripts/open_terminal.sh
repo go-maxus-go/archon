@@ -1,1 +1,3 @@
-kitty
+#!/bin/bash
+
+kitty -e $@
