@@ -1,24 +1,10 @@
-local pluginsCommand = [[
-    Plug 'rakr/vim-one'
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'kyazdani42/nvim-tree.lua'
-    Plug 'kien/ctrlp.vim'
-    Plug 'dyng/ctrlsf.vim'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'tpope/vim-commentary'
-    Plug 'karb94/neoscroll.nvim'
-    Plug 'romgrk/barbar.nvim'
-    Plug 'nvim-lualine/lualine.nvim'
-    Plug 'rmagatti/auto-session'
-    Plug 'akinsho/toggleterm.nvim'
-]]
-vim.cmd('call plug#begin()\n' .. pluginsCommand .. 'call plug#end()')
+require('plugins')
 
 -- Map leader to Space
 vim.g.mapleader = " "
 
 -- Key map helpers
-local bind =vim.api.nvim_set_keymap
+local bind = vim.api.nvim_set_keymap
 local silent = { silent = true }
 local noremap = { noremap = true }
 local noremapSilent = { noremap = true, silent = true }
@@ -28,10 +14,8 @@ vim.o.termguicolors = true -- 24-bit terminal
 vim.cmd('colorscheme one')
 vim.o.background = 'dark'
 
--- Plug 'kyazdani42/nvim-web-devicons'
 -- Plug 'kyazdani42/nvim-tree.lua'
 -- g? shows help
-require'nvim-tree'.setup()
 bind('n', '<Leader>n', ':NvimTreeToggle<CR>', noremap)
 
 -- Plug 'dyng/ctrlsf.vim'
@@ -57,24 +41,7 @@ bind('n', '<Leader>m', '<Plug>(easymotion-overwin-f)', {})
 bind('n', '<C-_>', ':Commentary<CR>', noremap)
 bind('v', '<C-_>', ':Commentary<CR>', noremap)
 
--- Plug 'karb94/neoscroll.nvim'
-require('neoscroll').setup{
-    easing_function = nil,
-    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', 'zz'},
-}
-require('neoscroll.config').set_mappings({
-    ['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}},
-    ['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '100'}},
-    ['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '100'}},
-    ['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '100'}},
-    ['<C-y>'] = {'scroll', {'-3', 'false', '30'}},
-    ['<C-e>'] = {'scroll', { '3', 'false', '30'}},
-    ['zz']    = {'zz', {'100'}},
-})
-
 -- Plug 'romgrk/barbar.nvim'
-vim.g.bufferline = {auto_hide = true}
-
 bind('n', '<A-,>', ':BufferPrevious<CR>', noremapSilent)
 bind('n', '<A-.>', ':BufferNext<CR>', noremapSilent)
 
@@ -85,18 +52,10 @@ for i = 1,9 do
     bind('n', '<A-'..i..'>', ':BufferGoto '..i..'<CR>', noremapSilent)
 end
 bind('n', '<A-0>', ':BufferLast<CR>', noremapSilent)
-
 bind('n', '<A-c>', ':BufferClose<CR>', noremapSilent)
 
--- Plug 'nvim-lualine/lualine.nvim'
-require('lualine').setup{options = {theme = 'onedark'}}
-
--- Plug 'rmagatti/auto-session'
-require('auto-session').setup()
-
 -- Plug 'akinsho/toggleterm.nvim'
--- vim.cmd("let g:toggleterm_terminal_mapping = '<CR>'")
-require("toggleterm").setup()
+-- vim.cmd("let g:togg).setup()
 bind('n', '<CR>', ':ToggleTerm<CR>', noremapSilent)
 
 -- General
