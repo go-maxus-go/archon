@@ -136,6 +136,33 @@ bind('n', '/', '/\\c', noremap)
 bind('n', '<C-s>', '<cmd>:w<CR>', noremapSilent)
 bind('i', '<C-s>', '<cmd>:w<CR>', noremapSilent)
 
+-- Move current line / block with Alt-j/k ala vscode.
+bind('i', '<A-j>', '<Esc>:m .+1<CR>==gi', noremapSilent)
+bind('i', '<A-k>', '<Esc>:m .-2<CR>==gi', noremapSilent)
+bind('n', '<A-j>', ':m .+1<CR>==', noremapSilent)
+bind('n', '<A-k>', ':m .-2<CR>==', noremapSilent)
+bind('v', '<A-j>', ":m '>+1<CR>gv-gv", noremapSilent)
+bind('v', '<A-k>', ":m '<-2<CR>gv-gv", noremapSilent)
+
+-- Reselect new indentation in visual mode
+bind('v', '<', '<gv', noremapSilent)
+bind('v', '>', '>gv', noremapSilent)
+
+-- Wild menu navigation
+bind('c', '<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true })
+bind('c', '<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true })
+
+-- Window movement
+bind('n', '<C-h>', '<C-w>h', noremapSilent)
+bind('n', '<C-j>', '<C-w>j', noremapSilent)
+bind('n', '<C-k>', '<C-w>k', noremapSilent)
+bind('n', '<C-l>', '<C-w>l', noremapSilent)
+
+-- Window resize
+bind('n', '<C-A-h>', ':vertical resize -2<CR>', noremapSilent)
+bind('n', '<C-A-j>', ':resize +2<CR>', noremapSilent)
+bind('n', '<C-A-k>', ':resize -2<CR>', noremapSilent)
+bind('n', '<C-A-l>', ':vertical resize +2<CR>', noremapSilent)
 
 -- Vimspector
 bind('n', '<F4>', '<Plug>VimspectorStop', silent)
