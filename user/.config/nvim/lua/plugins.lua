@@ -160,6 +160,7 @@ return require('packer').startup(function(use)
                 auto_start = "shut-up",
                 keymap = {
                     pre_select = false,
+                    jump_to_mark = "",
                 },
                 display = {
                     icons = {

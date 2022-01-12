@@ -1,7 +1,4 @@
--- Map leader to Space
-vim.g.mapleader = " "
-
-local normalBindings = {
+local normalModeBindings = {
     ["<leader>"] = "which_key_ignore",
     s = {"<cmd>:w<CR>", "Save File"},
     e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
@@ -36,7 +33,7 @@ local normalBindings = {
     },
 }
 
-local ideBindings = {
+local ideModeBindings = {
     d = {
         name = "Debug",
         b = {"<Plug>VimspectorBalloonEval", "Show Details"},
@@ -71,29 +68,32 @@ function setIdeMode()
     require("packer.load")(plugins, {}, _G.packer_plugins)
 
     local bindings = {}
-    for k, v in pairs(normalBindings) do
+    for k, v in pairs(normalModeBindings) do
         bindings[k] = v
     end
-    for k, v in pairs(ideBindings) do
+    for k, v in pairs(ideModeBindings) do
         bindings[k] = v
     end
 
-    local leaderBindings = require("which-key")
-    leaderBindings.register(bindings, {prefix="<leader>"})
-    leaderBindings.setup()
+    local whichKey = require("which-key")
+    whichKey.register(bindings, {prefix="<leader>"})
+    whichKey.setup()
 
     print("IDE Mode On")
 end
 
-normalBindings["l"] = {
+normalModeBindings["l"] = {
     name = "Load",
     h = {setIdeMode, "Heroic Mode"},
 }
 
 -- Setup normal mode leader bindings
-local leaderBindings = require("which-key")
-leaderBindings.register(normalBindings, {prefix="<leader>"})
-leaderBindings.setup()
+local whichKey = require("which-key")
+whichKey.register(normalModeBindings, {prefix="<leader>"})
+whichKey.setup()
+
+-- Map leader to Space
+vim.g.mapleader = " "
 
 -- Other bindings
 local bind = vim.api.nvim_set_keymap
@@ -151,6 +151,9 @@ bind('v', '>', '>gv', noremapSilent)
 -- Wild menu navigation
 bind('c', '<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true })
 bind('c', '<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true })
+
+bind('c', '<up>', 'wildmenumode() ? "<left>" : "<up>"', { expr = true, noremap = true })
+bind('c', '<down>', 'wildmenumode() ? "<right>" : "<down>"', { expr = true, noremap = true })
 
 -- Window movement
 bind('n', '<C-h>', '<C-w>h', noremapSilent)

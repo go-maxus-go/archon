@@ -34,8 +34,6 @@ vim.o.expandtab = true
 vim.o.ignorecase = true
 vim.o.wildmenu = true
 vim.o.wildmode = 'longest:full,full'
-vim.cmd('cnoremap <expr> <up> wildmenumode() ? "<left>" : "<up>"')
-vim.cmd('cnoremap <expr> <down> wildmenumode() ? "<right>" : "<down>"')
 
 -- Enable copying to system clipboard, xclip is required
 vim.opt.clipboard:append('unnamedplus')
