@@ -122,9 +122,56 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'neoclide/coc.nvim',
-        branch = 'release',
+        'APZelos/blamer.nvim',
         opt = true,
+        config = function()
+            vim.cmd("BlamerShow")
+        end
+    }
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        opt = true,
+        config = function()
+            require("indent_blankline").setup {}
+        end
+    }
+    use {
+        "airblade/vim-gitgutter",
+        opt = true,
+        config = function()
+            vim.cmd("autocmd! gitgutter CursorHold,CursorHoldI")
+            vim.cmd("autocmd BufWritePost * :GitGutter")
+            vim.cmd("GitGutterAll")
+        end
+    }
+    use {
+        'neovim/nvim-lspconfig',
+        opt = true,
+        config = function()
+            require('lspconfig').pyright.setup{}
+        end
+    }
+    use {
+        'ms-jpq/coq_nvim',
+        opt = true,
+        branch = 'coq',
+        config = function()
+            vim.g.coq_settings = {
+                auto_start = "shut-up",
+                keymap = {
+                    pre_select = false,
+                },
+                display = {
+                    icons = {
+                        mode = 'none',
+                    },
+                    pum = {
+                        fast_close = false,
+                    },
+                },
+            }
+            vim.cmd("COQnow")
+        end
     }
 
     -- Automatically set up configuration after cloning packer.nvim

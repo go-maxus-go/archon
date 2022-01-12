@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 local normalBindings = {
     ["<leader>"] = "which_key_ignore",
     s = {"<cmd>:w<CR>", "Save File"},
-    d = {"<cmd>NvimTreeToggle<CR>", "Toogle Directories"},
+    e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
     j = {"<Plug>(easymotion-overwin-f)", "Jump to"},
     f = {
         name = "Find",
@@ -37,10 +37,10 @@ local normalBindings = {
 }
 
 local ideBindings = {
-    v = {
-        name = "Vimspector",
-        b = {"<Plug>VimspectorBalloonEval", "Show Balloon"},
-        v = {"<cmd>VimspectorReset<CR>", "Hide"},
+    d = {
+        name = "Debug",
+        b = {"<Plug>VimspectorBalloonEval", "Show Details"},
+        d = {"<cmd>VimspectorReset<CR>", "Hide"},
         u = {"<cmd>VimspectorUpdate<CR>", "Update"},
         o = {"<cmd>VimspectorShowOutput<CR>", "Show Output"},
         l = {"<cmd>VimspectorToggleLog<CR>", "Toggle Log"},
@@ -48,12 +48,25 @@ local ideBindings = {
         s = {"<cmd>VimspectorMkSession<CR>", "Save session"},
         r = {"<cmd>VimspectorLoadSession<CR>", "Restore session"},
     },
+    g = {
+        name = "Git",
+        g = {"<cmd>GitGutterToggle<CR>", "Toggle Gutter"},
+        s = {"<cmd>GitGutterStageHunk<CR>", "Stage Hunk"},
+        u = {"<cmd>GitGutterUndoHunk<CR>", "Undo Hunk"},
+        v = {"<cmd>GitGutterPreviewHunk<CR>", "View Hunk"},
+        n = {"<cmd>GitGutterNextHunk<CR>", "Next Hunk"},
+        p = {"<cmd>GitGutterPrevHunk<CR>", "Prev Hunk"},
+    },
 }
 
 function setIdeMode()
     plugins = {
-        'coc.nvim',
-        'vimspector',
+        "vimspector",
+        "blamer.nvim",
+        "indent-blankline.nvim",
+        "vim-gitgutter",
+        'nvim-lspconfig',
+        'coq_nvim',
     }
     require("packer.load")(plugins, {}, _G.packer_plugins)
 
