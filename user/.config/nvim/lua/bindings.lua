@@ -58,12 +58,14 @@ local ideModeBindings = {
 
 function setIdeMode()
     plugins = {
+        'nvim-lspconfig',
+        "nvim-lsp-installer",
         "vimspector",
         "blamer.nvim",
         "indent-blankline.nvim",
         "vim-gitgutter",
-        'nvim-lspconfig',
         'coq_nvim',
+        'nvim-treesitter',
     }
     require("packer.load")(plugins, {}, _G.packer_plugins)
 
@@ -167,8 +169,11 @@ bind('n', '<C-A-j>', ':resize +2<CR>', noremapSilent)
 bind('n', '<C-A-k>', ':resize -2<CR>', noremapSilent)
 bind('n', '<C-A-l>', ':vertical resize +2<CR>', noremapSilent)
 
+-- Copy and paste
+bind('n', 'D', '"_D', noremapSilent)
+bind('v', 'p', '"_dP', noremapSilent)
+
 -- Vimspector
-bind('n', '<F4>', '<Plug>VimspectorStop', silent)
 bind('n', '<F5>', '<Plug>VimspectorContinue', silent)
 bind('n', '<F6>', '<Plug>VimspectorPause', silent)
 

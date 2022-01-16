@@ -17,6 +17,8 @@ vim.o.cursorline = true
 vim.o.mouse = 'a'
 vim.o.ff = 'unix'
 vim.o.updatetime = 1000
+vim.o.termguicolors = true
+-- vim.cmd("autocmd FileType * set formatoptions-=o") -- doesn't work
 
 -- Enable invisible symbols
 vim.o.list = true
@@ -37,9 +39,6 @@ vim.o.wildmode = 'longest:full,full'
 
 -- Enable copying to system clipboard, xclip is required
 vim.opt.clipboard:append('unnamedplus')
-
--- Plugin romgrk/barbar.nvim
-vim.g.bufferline = {auto_hide = true}
 
 -- Vimspector
 vim.cmd("let g:vimspector_install_gadgets = [ 'debugpy' ]")
