@@ -22,7 +22,7 @@ vim.o.termguicolors = true
 
 -- Enable invisible symbols
 vim.o.list = true
-vim.o.listchars = 'space:·,tab:>·'
+vim.o.listchars = 'space:⸱,tab:>⸱'
 
 -- Remove trailing whitespaces
 vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])

@@ -40,16 +40,27 @@ packer.init {
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+
+    -- Themes
     use {
-      'folke/tokyonight.nvim',
+      'tyrannicaltoucan/vim-deep-space',
       config = function()
-        vim.cmd('colorscheme tokyonight')
+        vim.cmd[[let g:deepspace_italics=1]]
+        vim.cmd[[set background=dark]]
+        vim.cmd[[set termguicolors]]
+        vim.cmd[[colorscheme deep-space]]
       end
     }
     -- use {
-    --   'navarasu/onedark.nvim',
+    --   'lifepillar/vim-solarized8',
     --   config = function()
-    --     vim.cmd('colorscheme onedark')
+    --     vim.cmd[[colorscheme solarized8]]
+    --   end
+    -- }
+    -- use {
+    --   'folke/tokyonight.nvim',
+    --   config = function()
+    --     vim.cmd('colorscheme tokyonight')
     --   end
     -- }
     -- use {
@@ -67,6 +78,12 @@ return require('packer').startup(function(use)
     --     vim.g.vscode_transparent = 1
     --     vim.g.vscode_italic_comment = 1
     --     vim.cmd[[colorscheme vscode]]
+    --   end
+    -- }
+    -- use {
+    --   'joshdick/onedark.vim',
+    --   config = function()
+    --     vim.cmd[[colorscheme onedark]]
     --   end
     -- }
 
@@ -106,7 +123,7 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       config = function()
-        require('lualine').setup{options = {theme = 'tokyonight'}}
+        require('lualine').setup{}
       end
     }
     use 'rmagatti/auto-session'
