@@ -40,7 +40,7 @@ noto-fonts-emoji
 tint2
 
 # text editors
-nvim
+neovim
 ripgrep # for neovim search
 xsel # for neovim copying to the system clipboard
 ttf-nerd-fonts-symbols # for icons in file browser
