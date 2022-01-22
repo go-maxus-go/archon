@@ -58,17 +58,17 @@ return require('packer').startup(function(use)
     --   end
     -- }
     -- use {
-    --   'folke/tokyonight.nvim',
-    --   config = function()
-    --     vim.cmd('colorscheme tokyonight')
-    --   end
-    -- }
-    -- use {
     --   'sainnhe/sonokai',
     --   config = function()
     --     vim.g.sonokai_enable_italic = 1
     --     vim.g.sonokai_disable_italic_comment = 1
     --     vim.cmd('colorscheme sonokai')
+    --   end
+    -- }
+    -- use {
+    --   'folke/tokyonight.nvim',
+    --   config = function()
+    --     vim.cmd('colorscheme tokyonight')
     --   end
     -- }
     -- use {
@@ -157,8 +157,6 @@ return require('packer').startup(function(use)
     use {
       'neovim/nvim-lspconfig',
       opt = true,
-      config = function()
-      end
     }
     use {
       "williamboman/nvim-lsp-installer",
@@ -242,10 +240,10 @@ return require('packer').startup(function(use)
         vim.cmd("COQnow")
       end
     }
-    use {
-      'sindrets/diffview.nvim',
-      requires = 'nvim-lua/plenary.nvim'
-    }
+    -- use {
+    --   'sindrets/diffview.nvim',
+    --   requires = 'nvim-lua/plenary.nvim'
+    -- }
     use {
       'nvim-treesitter/nvim-treesitter',
       opt = true,
@@ -267,6 +265,16 @@ return require('packer').startup(function(use)
             enable_autocmd = false,
           },
         }
+      end
+    }
+
+    -- Language plugins
+    use {
+      'akinsho/flutter-tools.nvim',
+      opt = true,
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+        require("flutter-tools").setup{}
       end
     }
 

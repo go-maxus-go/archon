@@ -27,7 +27,7 @@ for i in groups:
             desc="Switch to & move focused window to group {}".format(i.name)),
     ])
 
-borderWidth = 4
+borderWidth = 2
 borderFocus='#7b99b7'
 borderNormal='#1a1d23'
 borderFocusStack='#00897b'

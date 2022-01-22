@@ -32,8 +32,12 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
--- Wild menu
+-- Case sensitivity
 vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Wild menu
+vim.o.wildignorecase = true
 vim.o.wildmenu = true
 vim.o.wildmode = 'longest:full,full'
 

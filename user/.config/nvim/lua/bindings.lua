@@ -1,99 +1,3 @@
-local normalModeBindings = {
-    ["<leader>"] = "which_key_ignore",
-    s = {"<cmd>:w<CR>", "Save File"},
-    e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
-    j = {"<Plug>(easymotion-overwin-f)", "Jump to"},
-    f = {
-        name = "Find",
-        f = {"<cmd>CtrlSFToggle<CR>", "Toggle Window"},
-        c = {"<Plug>CtrlSFCwordPath -W<CR>", "Currect word"},
-        t = {':CtrlSF -R -I ""<Left>', "Text", silent = false},
-    },
-    t = {
-        name = "Telescope",
-        t = {"<cmd>Telescope resume<cr>", "Toggle Window" },
-        f = {"<cmd>Telescope find_files<cr>", "File" },
-        b = {"<cmd>Telescope buffers<cr>", "Buffer"},
-        g = {"<cmd>Telescope live_grep<cr>", "Grep Text"},
-        h = {"<cmd>Telescope help_tags<cr>", "Help Tag"},
-    },
-    p = {
-        name = "Packer",
-        s = {"<cmd>PackerSync<cr>", "Sync" },
-        u = {"<cmd>PackerUpdate<cr>", "Update" },
-        i = {"<cmd>PackerInstall<cr>", "Install" },
-        t = {"<cmd>PackerStatus<cr>", "Status" },
-        l = {"<cmd>PackerClean<cr>", "Clean" },
-        c = {"<cmd>PackerCompile<cr>", "Compile" },
-    },
-    o = {
-        name = "Open",
-        n = {"<cmd>enew<CR>", "New buffer"},
-        f = {":e ", "File", silent = false},
-    },
-}
-
-local ideModeBindings = {
-    d = {
-        name = "Debug",
-        b = {"<Plug>VimspectorBalloonEval", "Show Details"},
-        d = {"<cmd>VimspectorReset<CR>", "Hide"},
-        u = {"<cmd>VimspectorUpdate<CR>", "Update"},
-        o = {"<cmd>VimspectorShowOutput<CR>", "Show Output"},
-        l = {"<cmd>VimspectorToggleLog<CR>", "Toggle Log"},
-        i = {"<cmd>VimspectorInstall<CR>", "Install"},
-        s = {"<cmd>VimspectorMkSession<CR>", "Save session"},
-        r = {"<cmd>VimspectorLoadSession<CR>", "Restore session"},
-    },
-    g = {
-        name = "Git",
-        g = {"<cmd>GitGutterToggle<CR>", "Toggle Gutter"},
-        s = {"<cmd>GitGutterStageHunk<CR>", "Stage Hunk"},
-        u = {"<cmd>GitGutterUndoHunk<CR>", "Undo Hunk"},
-        v = {"<cmd>GitGutterPreviewHunk<CR>", "View Hunk"},
-        n = {"<cmd>GitGutterNextHunk<CR>", "Next Hunk"},
-        p = {"<cmd>GitGutterPrevHunk<CR>", "Prev Hunk"},
-    },
-}
-
-function setIdeMode()
-    plugins = {
-        'nvim-lspconfig',
-        "nvim-lsp-installer",
-        "vimspector",
-        "blamer.nvim",
-        "indent-blankline.nvim",
-        "vim-gitgutter",
-        'coq_nvim',
-        'nvim-treesitter',
-    }
-    require("packer.load")(plugins, {}, _G.packer_plugins)
-
-    local bindings = {}
-    for k, v in pairs(normalModeBindings) do
-        bindings[k] = v
-    end
-    for k, v in pairs(ideModeBindings) do
-        bindings[k] = v
-    end
-
-    local whichKey = require("which-key")
-    whichKey.register(bindings, {prefix="<leader>"})
-    whichKey.setup()
-
-    print("IDE Mode On")
-end
-
-normalModeBindings["l"] = {
-    name = "Load",
-    h = {setIdeMode, "Heroic Mode"},
-}
-
--- Setup normal mode leader bindings
-local whichKey = require("which-key")
-whichKey.register(normalModeBindings, {prefix="<leader>"})
-whichKey.setup()
-
 -- Map leader to Space
 vim.g.mapleader = " "
 
@@ -183,3 +87,115 @@ bind('n', '<F9>', '<Plug>VimspectorToggleBreakpoint', silent)
 bind('n', '<F10>', '<Plug>VimspectorStepOver', silent)
 bind('n', '<F11>', '<Plug>VimspectorStepInto', silent)
 bind('n', '<F12>', '<Plug>VimspectorStepOut', silent)
+
+-- Leader bindings
+local normalModeBindings = {
+    ["<leader>"] = "which_key_ignore",
+    s = {"<cmd>:w<CR>", "Save File"},
+    e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
+    j = {"<Plug>(easymotion-overwin-f)", "Jump to"},
+    f = {
+        name = "Find",
+        f = {"<cmd>CtrlSFToggle<CR>", "Toggle Window"},
+        c = {"<Plug>CtrlSFCwordPath -W<CR>", "Currect word"},
+        t = {':CtrlSF -R -I ""<Left>', "Text", silent = false},
+    },
+    t = {
+        name = "Telescope",
+        t = {"<cmd>Telescope resume<cr>", "Toggle Window" },
+        f = {"<cmd>Telescope find_files<cr>", "File" },
+        b = {"<cmd>Telescope buffers<cr>", "Buffer"},
+        g = {"<cmd>Telescope live_grep<cr>", "Grep Text"},
+        h = {"<cmd>Telescope help_tags<cr>", "Help Tag"},
+    },
+    p = {
+        name = "Packer",
+        s = {"<cmd>PackerSync<cr>", "Sync" },
+        u = {"<cmd>PackerUpdate<cr>", "Update" },
+        i = {"<cmd>PackerInstall<cr>", "Install" },
+        t = {"<cmd>PackerStatus<cr>", "Status" },
+        l = {"<cmd>PackerClean<cr>", "Clean" },
+        c = {"<cmd>PackerCompile<cr>", "Compile" },
+    },
+    o = {
+        name = "Open",
+        n = {"<cmd>enew<CR>", "New buffer"},
+        f = {":e ", "File", silent = false},
+    },
+}
+
+local ideModeBindings = {
+    d = {
+        name = "Debug",
+        b = {"<Plug>VimspectorBalloonEval", "Show Details"},
+        d = {"<cmd>VimspectorReset<CR>", "Hide"},
+        u = {"<cmd>VimspectorUpdate<CR>", "Update"},
+        o = {"<cmd>VimspectorShowOutput<CR>", "Show Output"},
+        l = {"<cmd>VimspectorToggleLog<CR>", "Toggle Log"},
+        i = {"<cmd>VimspectorInstall<CR>", "Install"},
+        s = {"<cmd>VimspectorMkSession<CR>", "Save session"},
+        r = {"<cmd>VimspectorLoadSession<CR>", "Restore session"},
+    },
+    g = {
+        name = "Git",
+        g = {"<cmd>GitGutterToggle<CR>", "Toggle Gutter"},
+        s = {"<cmd>GitGutterStageHunk<CR>", "Stage Hunk"},
+        u = {"<cmd>GitGutterUndoHunk<CR>", "Undo Hunk"},
+        v = {"<cmd>GitGutterPreviewHunk<CR>", "View Hunk"},
+        n = {"<cmd>GitGutterNextHunk<CR>", "Next Hunk"},
+        p = {"<cmd>GitGutterPrevHunk<CR>", "Prev Hunk"},
+    },
+}
+
+function setIdeMode()
+    plugins = {
+        'nvim-lspconfig',
+        "nvim-lsp-installer",
+        "vimspector",
+        "blamer.nvim",
+        "indent-blankline.nvim",
+        "vim-gitgutter",
+        'coq_nvim',
+        'nvim-treesitter',
+
+        -- Languages
+        'flutter-tools.nvim',
+    }
+    require("packer.load")(plugins, {}, _G.packer_plugins)
+
+    local bindings = {}
+    for k, v in pairs(normalModeBindings) do
+        bindings[k] = v
+    end
+    for k, v in pairs(ideModeBindings) do
+        bindings[k] = v
+    end
+
+    local whichKey = require("which-key")
+    whichKey.register(bindings, {prefix="<leader>"})
+    whichKey.setup()
+
+    bind('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', noremapSilent)
+    bind('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', noremapSilent)
+    bind('n', '<A-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', noremapSilent)
+    -- bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', noremapSilent)
+    bind('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', noremapSilent)
+    -- bind('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', noremapSilent)
+    bind('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', noremapSilent)
+    bind('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', noremapSilent)
+    -- bind('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', noremapSilent)
+    bind('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', noremapSilent)
+
+    print("IDE Mode On")
+end
+
+normalModeBindings["l"] = {
+    name = "Load",
+    h = {setIdeMode, "Heroic Mode"},
+}
+
+-- Setup normal mode leader bindings
+local whichKey = require("which-key")
+whichKey.register(normalModeBindings, {prefix="<leader>"})
+whichKey.setup()
+
