@@ -43,18 +43,26 @@ return require('packer').startup(function(use)
 
     -- Themes
     use {
-      'tyrannicaltoucan/vim-deep-space',
+      'lifepillar/vim-solarized8',
       config = function()
-        vim.cmd[[let g:deepspace_italics=1]]
         vim.cmd[[set background=dark]]
-        vim.cmd[[set termguicolors]]
-        vim.cmd[[colorscheme deep-space]]
+        vim.cmd[[colorscheme solarized8]]
       end
     }
     -- use {
-    --   'lifepillar/vim-solarized8',
+    --   'folke/tokyonight.nvim',
     --   config = function()
-    --     vim.cmd[[colorscheme solarized8]]
+    --     vim.g.tokyonight_style = "storm"
+    --     vim.cmd[[colorscheme tokyonight]]
+    --   end
+    -- }
+    -- use {
+    --   'tyrannicaltoucan/vim-deep-space',
+    --   config = function()
+    --     vim.cmd[[let g:deepspace_italics=1]]
+    --     vim.cmd[[set background=dark]]
+    --     vim.cmd[[set termguicolors]]
+    --     vim.cmd[[colorscheme deep-space]]
     --   end
     -- }
     -- use {
@@ -63,27 +71,6 @@ return require('packer').startup(function(use)
     --     vim.g.sonokai_enable_italic = 1
     --     vim.g.sonokai_disable_italic_comment = 1
     --     vim.cmd('colorscheme sonokai')
-    --   end
-    -- }
-    -- use {
-    --   'folke/tokyonight.nvim',
-    --   config = function()
-    --     vim.cmd('colorscheme tokyonight')
-    --   end
-    -- }
-    -- use {
-    --   'Mofiqul/vscode.nvim',
-    --   config = function()
-    --     vim.g.vscode_style = "dark"
-    --     vim.g.vscode_transparent = 1
-    --     vim.g.vscode_italic_comment = 1
-    --     vim.cmd[[colorscheme vscode]]
-    --   end
-    -- }
-    -- use {
-    --   'joshdick/onedark.vim',
-    --   config = function()
-    --     vim.cmd[[colorscheme onedark]]
     --   end
     -- }
 
@@ -264,6 +251,19 @@ return require('packer').startup(function(use)
             enable = true,
             enable_autocmd = false,
           },
+        }
+      end
+    }
+    use {
+      'p00f/nvim-ts-rainbow',
+      opt = true,
+      config = function()
+        require("nvim-treesitter.configs").setup {
+          rainbow = {
+            enable = true,
+            extended_mode = true,
+            max_file_lines = nil,
+          }
         }
       end
     }

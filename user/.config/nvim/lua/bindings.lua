@@ -157,7 +157,7 @@ function setIdeMode()
         "vim-gitgutter",
         'coq_nvim',
         'nvim-treesitter',
-
+        'nvim-ts-rainbow',
         -- Languages
         'flutter-tools.nvim',
     }

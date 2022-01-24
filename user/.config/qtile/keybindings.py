@@ -47,6 +47,7 @@ applicationKeys = [
 
     Key([mod], "e", runScript("open_file_manager.sh"), desc="Open a file manager"),
     Key([mod], "v", runScript("open_vim.sh"), desc="Open vim"),
+    Key([mod, shift], "s", runScript("launch_screenshot_tool.sh"), desc="Launch screenshot tool"),
 ]
 
 multimediaKeys = [
