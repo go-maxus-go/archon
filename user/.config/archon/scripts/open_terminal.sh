@@ -1,3 +1,8 @@
 #!/bin/bash
 
-kitty -e $@
+if [ -z $@ ]
+then
+    alacritty
+else
+    alacritty -e $@
+fi
