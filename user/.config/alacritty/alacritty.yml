@@ -197,7 +197,8 @@ window.opacity: 1.0
   # Record all characters and escape sequences as test data.
   #ref_test: false
 
-#mouse:
+mouse:
+  hide_when_typing: true
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
