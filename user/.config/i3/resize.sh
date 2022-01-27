@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 [ -z "$1" ] && echo "No direction provided" && exit 1
-delta="4 px or 4 ppt"
+delta="5 px or 5 ppt"
 
 moveChoice() {
   success=$(i3-msg resize "$1" "$2" "$delta" | grep '"success":true')

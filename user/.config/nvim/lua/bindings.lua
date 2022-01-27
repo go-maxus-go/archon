@@ -74,7 +74,6 @@ bind('n', '<C-A-k>', ':resize -2<CR>', noremapSilent)
 bind('n', '<C-A-l>', ':vertical resize +2<CR>', noremapSilent)
 
 -- Copy and paste
-bind('n', 'D', '"_D', noremapSilent)
 bind('v', 'p', '"_dP', noremapSilent)
 
 -- Vimspector

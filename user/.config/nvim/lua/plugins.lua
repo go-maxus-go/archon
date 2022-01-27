@@ -110,6 +110,7 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       config = function()
+        vim.cmd('set noshowmode')
         require('lualine').setup{}
       end
     }
@@ -137,6 +138,13 @@ return require('packer').startup(function(use)
             Misc = { color = "#c678dd" },
           }
         }
+      end
+    }
+    use {
+      'RRethy/vim-hexokinase',
+      run = 'make hexokinase',
+      config = function()
+        vim.cmd("let g:Hexokinase_highlighters = ['backgroundfull']")
       end
     }
 

@@ -1,7 +1,7 @@
 configuration {
     show-icons:                     false;
     disable-history:                false;
-	sidebar-mode: 					false;
+    sidebar-mode: 					false;
     hover-select: true;
     me-select-entry: "";
     me-accept-entry: [ MousePrimary, MouseSecondary, MouseDPrimary ];
@@ -17,9 +17,9 @@ configuration {
 window {
     transparency:                   "real";
     width:                          164px;
-    location:                       south west;
+    location:                       center;
     x-offset:                       0px;
-    y-offset:                       -32px;
+    y-offset:                       0px;
 }
 
 listview {
