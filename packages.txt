@@ -51,7 +51,6 @@ ripgrep # for neovim search
 xsel # for neovim copying to the system clipboard
 ttf-nerd-fonts-symbols # for icons in file browser
 python-pynvim # python support for neovim
-# cudatext # from aur
 
 # Audio
 pulseaudio # server
