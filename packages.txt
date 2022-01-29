@@ -55,6 +55,9 @@ xsel # for neovim copying to the system clipboard
 ttf-nerd-fonts-symbols # for icons in file browser
 python-pynvim # python support for neovim
 
+# Gui text editor
+featherpad
+
 # Audio
 pulseaudio # server
 pavucontrol # controller
