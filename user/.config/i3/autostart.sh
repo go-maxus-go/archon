@@ -10,6 +10,7 @@ function run {
 # run tint2 &
 run setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
 run dunst &
+run picom --experimental-backends &
 
 # restore wallpaper if config folder exists
 user_home=$(eval echo "~$different_user")

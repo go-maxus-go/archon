@@ -4,6 +4,9 @@
 # wallpaper manager for autostart
 nitrogen
 
+# Windows composer
+picom
+
 # terminal
 kitty
 bash-completion # terminal auto completion

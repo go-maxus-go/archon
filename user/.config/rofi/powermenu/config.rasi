@@ -20,6 +20,7 @@ window {
     location:                       center;
     x-offset:                       0px;
     y-offset:                       0px;
+    border-radius:                  0px;
 }
 
 listview {
