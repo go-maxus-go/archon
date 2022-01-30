@@ -24,9 +24,6 @@ end
 bind('n', '<A-0>', ':BufferLast<CR>', noremapSilent)
 bind('n', '<A-c>', ':BufferClose<CR>', noremapSilent)
 
--- Plug 'akinsho/toggleterm.nvim'
-bind('n', '<CR>', ':ToggleTerm<CR>', noremapSilent)
-
 -- Swap ; and : for faster entering in command mode
 bind('n', ';', ':', noremap)
 bind('n', ':', ';', noremap)
