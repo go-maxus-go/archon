@@ -26,6 +26,11 @@ gnome-system-monitor
 # file manager
 nemo
 
+# cli file manager
+ranger
+w3m # image preview
+trash-cli
+
 # for the Internet
 networkmanager
 nm-connection-editor # gui
