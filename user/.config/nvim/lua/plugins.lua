@@ -186,6 +186,40 @@ return require('packer').startup(function(use)
         vim.cmd("let g:Hexokinase_highlighters = ['backgroundfull']")
       end
     }
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function()
+        require'nvim-treesitter.configs'.setup {
+          ensure_installed = "maintained",
+          sync_install = false,
+          autopairs = {
+            enable = true,
+          },
+          highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = true,
+          },
+          indent = { enable = true, disable = { "yaml" } },
+          context_commentstring = {
+            enable = true,
+            enable_autocmd = false,
+          },
+        }
+      end
+    }
+    use {
+      'p00f/nvim-ts-rainbow',
+      config = function()
+        require("nvim-treesitter.configs").setup {
+          rainbow = {
+            enable = true,
+            extended_mode = true,
+            max_file_lines = nil,
+          }
+        }
+      end
+    }
 
     -- IDE plugins
     use {
@@ -278,42 +312,6 @@ return require('packer').startup(function(use)
     --   'sindrets/diffview.nvim',
     --   requires = 'nvim-lua/plenary.nvim'
     -- }
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      opt = true,
-      run = ':TSUpdate',
-      config = function()
-        require'nvim-treesitter.configs'.setup {
-          ensure_installed = "maintained",
-          sync_install = false,
-          autopairs = {
-            enable = true,
-          },
-          highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = true,
-          },
-          indent = { enable = true, disable = { "yaml" } },
-          context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-          },
-        }
-      end
-    }
-    use {
-      'p00f/nvim-ts-rainbow',
-      opt = true,
-      config = function()
-        require("nvim-treesitter.configs").setup {
-          rainbow = {
-            enable = true,
-            extended_mode = true,
-            max_file_lines = nil,
-          }
-        }
-      end
-    }
 
     -- Language plugins
     use {
