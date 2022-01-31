@@ -63,7 +63,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x002b36'
+    black:   '0x12485e'
     red:     '0xdc322f'
     green:   '0x859900'
     yellow:  '0xb58900'
@@ -370,4 +370,5 @@ key_bindings:
   - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
   - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
   - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
-
+  - { key: Return,   mods: Shift,   chars: "\x1b[13;2u" }
+  - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
