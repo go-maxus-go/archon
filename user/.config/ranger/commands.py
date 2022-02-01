@@ -656,12 +656,13 @@ class MoveToTrash(Command):
 
         paths = []
         for obj in self.fm.thistab.get_selection():
-            paths.append(obj.path)
+            path = '"{}"'.format(obj.path)
+            paths.append(path)
 
         if len(paths) == 0:
             return
 
-        info = "{} objects".format(len(paths))
+        info = "{} objects".format(str(len(paths)))
         if len(paths) == 1:
             info = os.path.basename(paths[0])
 
