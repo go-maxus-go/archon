@@ -220,6 +220,7 @@ return require('packer').startup(function(use)
         }
       end
     }
+    use 'itchyny/vim-cursorword'
 
     -- IDE plugins
     use {

@@ -25,7 +25,6 @@ class Solarized(ColorScheme):
             return default_colors
 
         elif context.in_browser:
-            fg = 244
             if context.selected:
                 attr = reverse
             else:
@@ -43,7 +42,7 @@ class Solarized(ColorScheme):
             if context.container:
                 fg = 61
             if context.directory:
-                fg = 33
+                fg = blue
             elif context.executable and not \
                     any((context.media, context.container,
                          context.fifo, context.socket)):
@@ -100,7 +99,7 @@ class Solarized(ColorScheme):
                 if context.bad:
                     bg = 166
             elif context.directory:
-                fg = 33
+                fg = blue
             elif context.tab:
                 fg = 47 if context.good else 33
                 bg = 239
