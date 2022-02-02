@@ -7,8 +7,7 @@ function run {
     fi
 }
 
-# run tint2 &
-run setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
+run setxkbmap -layout us &
 run dunst &
 run picom --experimental-backends &
 
