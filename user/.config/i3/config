@@ -60,6 +60,7 @@ bindsym $mod+v exec ~/.config/archon/scripts/open_vim.sh
 bindsym $mod+Shift+c exec ~/.config/archon/scripts/open_calendar.sh
 bindsym $ctrl+$mod+$alt+l exec ~/.config/archon/scripts/lock_screen.sh
 bindsym $mod+$alt+space exec ~/.config/archon/scripts/switch_keyboard_layout.sh
+bindsym $mod+m exec ~/.config/archon/scripts/open_task_manager.sh
 
 # Promote window
 bindsym $mod+a exec --no-startup-id ~/.config/i3/promote_window

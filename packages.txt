@@ -20,8 +20,8 @@ $ sudo systemctl enable lightdm
 lightdm-gtk-greeter # ?
 lightdm-gtk-greeter-settings # ?
 
-# processes monitor
-gnome-system-monitor
+# task manager
+ksysguard
 
 # file manager
 nemo
