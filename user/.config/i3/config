@@ -50,14 +50,15 @@ bindsym XF86MonBrightnessUp exec ~/.config/archon/scripts/brightness_up.sh
 bindsym XF86MonBrightnessDown exec ~/.config/archon/scripts/brightness_down.sh
 
 # Launch applications
-bindsym $mod+Return exec~/.config/archon/scripts/open_terminal.sh
-bindsym $mod+space exec~/.config/archon/scripts/launch_launcher.sh
-bindsym $mod+e exec~/.config/archon/scripts/open_file_manager.sh
-bindsym $mod+Shift+s exec~/.config/archon/scripts/launch_screenshot_tool.sh
-bindsym $mod+b exec~/.config/archon/scripts/open_internet_browser.sh
-bindsym $mod+Shift+B exec~/.config/archon/scripts/launch_bluetooth_manager.sh
-bindsym $mod+v exec~/.config/archon/scripts/open_vim.sh
-bindsym $mod+Shift+c exec~/.config/archon/scripts/open_calendar.sh
+bindsym $mod+Return exec ~/.config/archon/scripts/open_terminal.sh
+bindsym $mod+space exec ~/.config/archon/scripts/launch_launcher.sh
+bindsym $mod+e exec ~/.config/archon/scripts/open_file_manager.sh
+bindsym $mod+Shift+s exec ~/.config/archon/scripts/launch_screenshot_tool.sh
+bindsym $mod+b exec ~/.config/archon/scripts/open_internet_browser.sh
+bindsym $mod+Shift+B exec ~/.config/archon/scripts/launch_bluetooth_manager.sh
+bindsym $mod+v exec ~/.config/archon/scripts/open_vim.sh
+bindsym $mod+Shift+c exec ~/.config/archon/scripts/open_calendar.sh
+bindsym $ctrl+$mod+$alt+l exec ~/.config/archon/scripts/lock_screen.sh
 
 # Promote window
 bindsym $mod+a exec --no-startup-id ~/.config/i3/promote_window
