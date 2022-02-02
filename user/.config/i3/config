@@ -155,10 +155,23 @@ new_window 1pixel
 new_window pixel 3
 hide_edge_borders smart
 
-client.focused          #4c7899 #7b99b7 #2e3440 #00897b
-client.unfocused        #333333 #1a1d23 #888888 #292d2e
-client.focused_inactive #333333 #1a1d23 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+# My old theme
+# client.focused          #4c7899 #7b99b7 #2e3440 #00897b
+# client.unfocused        #333333 #1a1d23 #888888 #292d2e
+# client.focused_inactive #333333 #1a1d23 #888888 #292d2e
+# client.urgent           #2f343a #900000 #ffffff #900000
+
+# Original solarized dark
+# client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+# client.focused_inactive #002b36 #073642 #839496 #073642
+# client.unfocused        #002b36 #073642 #839496 #073642
+# client.urgent           #002b36 #dc322f #fdf6e3 #002b36
+
+# My solarized dark version
+client.focused          #002b36 #2aa198 #fdf6e3 #859900
+client.focused_inactive #002b36 #073642 #839496 #073642
+client.unfocused        #002b36 #073642 #839496 #073642
+client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
 bar {
     mode hide
@@ -169,7 +182,14 @@ bar {
 
     status_command i3status --config ~/.config/i3/i3status.conf
     colors {
-        background #282c34
-        statusline #cecece
+        background #002b36
+        statusline #93a1a1
+        separator  #586e75
+
+        # focused_workspace  #b58900 #b58900 #002b36
+        focused_workspace  #2aa198 #2aa198 #002b36
+        active_workspace   #586e75 #586e75 #002b36
+        inactive_workspace #073642 #002b36 #839496
+        urgent_workspace   #dc322f #dc322f #fdf6e3
     }
 }
