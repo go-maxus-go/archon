@@ -2,12 +2,17 @@
 
 currLayout=$(setxkbmap -query | awk '/layout/ {print $2}')
 
-newLayout=us
-if [[ "$currLayout" == "us" ]]; then
-   newLayout=ru
-else
-   newLayout=us
-fi
+# Get current language before comma
+next=${currLayout#*,}
+curr=${currLayout%"$next"}
+curr=${curr::-1}
 
+# Create new layout
+newLayout="${next},${curr}"
 setxkbmap $newLayout
-dunstify  ${newLayout^^} -u 0 -r 92347
+
+# Get current language before comma
+next=${newLayout#*,}
+curr=${newLayout%"$next"}
+curr=${curr::-1}
+dunstify ${curr^^} -u 0 -r 92347

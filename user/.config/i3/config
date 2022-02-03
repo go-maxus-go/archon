@@ -184,7 +184,7 @@ bar {
     status_command i3status --config ~/.config/i3/i3status.conf
     colors {
         background #002b36
-        statusline #93a1a1
+        statusline #fdf6e3
         separator  #586e75
 
         # focused_workspace  #b58900 #b58900 #002b36
