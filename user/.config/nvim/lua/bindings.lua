@@ -89,6 +89,7 @@ local normalModeBindings = {
     ["<leader>"] = "which_key_ignore",
     s = {"<cmd>:w<CR>", "Save File"},
     e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
+    w = {"<cmd>set wrap!<CR>", "Toggle Word Wrap"},
     j = {"<Plug>(easymotion-overwin-f)", "Jump to"},
     f = {
         name = "Find",

@@ -18,7 +18,14 @@ vim.o.mouse = 'a'
 vim.o.ff = 'unix'
 vim.o.updatetime = 1000
 vim.o.termguicolors = true
--- vim.cmd("autocmd FileType * set formatoptions-=o") -- doesn't work
+
+-- Swap files and autoread
+vim.cmd[[set noswapfile]]
+vim.o.autoread = true
+
+-- Don't add comment leader on a new line
+vim.cmd[[filetype plugin on]]
+vim.cmd[[autocmd FileType * set formatoptions=tcrqj]]
 
 -- Enable invisible symbols
 vim.o.list = true
