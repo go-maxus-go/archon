@@ -7,7 +7,7 @@ function run {
     fi
 }
 
-run setxkbmap -layout us,ru &
+run setxkbmap -layout us &
 run dunst &
 run picom --experimental-backends &
 
