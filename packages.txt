@@ -8,7 +8,7 @@ nitrogen
 picom
 
 # terminal
-kitty
+alacritty
 bash-completion # terminal auto completion
 
 # boot loader, show whish system to load
