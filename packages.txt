@@ -47,7 +47,7 @@ python-i3ipc
 # fonts
 ttf-dejavu
 ttf-droid
-ttf-roboto
+ttf-roboto-mono
 noto-fonts-emoji
 
 # dock bar, config must have
