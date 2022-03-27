@@ -2,7 +2,7 @@
 
 dir=$(cd "$(dirname "$0")" && pwd)
 
-packages=(brave cudatext)
+packages=(brave)
 
 for package in ${packages[@]}; do
 	cd $dir/$package
