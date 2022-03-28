@@ -66,6 +66,7 @@ featherpad
 # Audio
 pulseaudio # server
 pavucontrol # controller
+sof-firmware # fixes razer blade no audio problem
 
 # needed for openbox launch
 xorg-server
