@@ -1,0 +1,4 @@
+~/.Xresources
+
+Change
+Xft.dpi: 144
