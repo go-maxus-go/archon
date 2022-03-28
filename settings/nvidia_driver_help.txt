@@ -18,3 +18,12 @@ optimus-manager --switch integrated
 
 # switch to hybrid mode
 optimus-manager --switch hybrid
+
+# Create /etc/optimus-manager/optimus-manager.conf with lines below, reboot
+[optimus]
+startup_mode=hybrid
+startup_auto_battery_mode=hybrid
+startup_auto_extpower_mode=hybrid
+
+[nvidia]
+dynamic_power_management=fine
