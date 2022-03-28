@@ -9,7 +9,7 @@ function run {
 
 run setxkbmap -layout us &
 run dunst &
-run picom --experimental-backends &
+# run picom --experimental-backends &
 
 # restore wallpaper if config folder exists
 user_home=$(eval echo "~$different_user")
