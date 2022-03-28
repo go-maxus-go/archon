@@ -36,10 +36,9 @@ networkmanager
 nm-connection-editor # gui
 
 # windows managers
-qtile
-openbox
-
-# i3
+# qtile
+# openbox
+# obconf # openbox configuration manager
 i3-gaps
 i3status
 python-i3ipc
@@ -68,7 +67,7 @@ pulseaudio # server
 pavucontrol # controller
 sof-firmware # fixes razer blade no audio problem
 
-# needed for openbox launch
+# needed for wm launch
 xorg-server
 xorg-xinit
 
@@ -90,9 +89,8 @@ base-devel # for aur
 openssh # for ssh-keygen and more
 git
 tk # for gitk
-lxappearance # openbox look and feel
-obconf # openbox configuration manager
-xorg-setxkbmap # switch keyboard layout with caps, see openbox/autostart
+lxappearance # look and feel
+xorg-setxkbmap # switch keyboard layout
 xorg-xrandr # set display resolution, xrandr --output DisplayName --scale 1.25x1.25
 arandr # GUI for xrandr
 gsimplecal # a simple calender for tint2
