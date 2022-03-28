@@ -1,0 +1,17 @@
+Edit etc/grub.d/40_custom and add:
+
+menuentry 'Windows 10' {
+    search --fs-uuid --no-floppy --set=root $UUID$
+    chainloader (${root})/EFI/Microsoft/Boot/bootmgfw.efi
+}
+
+Get UUID
+
+Find windows EFI $partition$
+sudo fdisk -l
+
+Get UUID of the $partition$
+sudo blkid $partition$
+
+Update GRUB config
+sudo grub-mkconfig -o /boot/grub/grub.cfg
