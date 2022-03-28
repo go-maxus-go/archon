@@ -177,7 +177,7 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 bar {
     mode hide
     hidden_state hide
-    modifier $ctrl+$mod+$alt
+    modifier $mod+$alt
 
     strip_workspace_numbers yes
 
