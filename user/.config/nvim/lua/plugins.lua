@@ -80,8 +80,8 @@ return require('packer').startup(function(use)
       'kyazdani42/nvim-tree.lua',
       requires = {'kyazdani42/nvim-web-devicons'},
       config = function()
+        vim.cmd[[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
         require('nvim-tree').setup{
-          auto_close = true,
           view = {
             mappings = {
               list = {
