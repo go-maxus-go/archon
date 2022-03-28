@@ -2,7 +2,7 @@ import os
 import sys
 
 def calcTotalBrightness(brightness, maxBrightness, softBrightness):
-    return round((100 * brightness / maxBrightness) - 100 + 100 * softBrightness)
+    return int(round((10 * brightness / maxBrightness)) * 10 - 100 + 100 * softBrightness)
 
 minBrightness = 1
 minSoftBrightness = 0.2
