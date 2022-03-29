@@ -108,3 +108,4 @@ flameshot # a screenshot tool
 gnome-disk-utility # utils for USB disk formatting
 vlc # video player
 audacious # audio player
+xsecurelock # screen locker
