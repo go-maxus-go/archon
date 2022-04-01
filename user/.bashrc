@@ -118,7 +118,5 @@ bind 'set completion-ignore-case on'
 alias gg=gitk
 alias v=nvim
 
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
+export SUDO_EDITOR="nvim"
+alias sudov="sudo -e $1"
