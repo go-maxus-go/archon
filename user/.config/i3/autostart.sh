@@ -9,6 +9,7 @@ function run {
 
 run setxkbmap -layout us &
 run dunst &
+run light-locker --lock-on-lid &
 # run picom --experimental-backends &
 
 # restore wallpaper if config folder exists
