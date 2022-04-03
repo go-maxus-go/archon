@@ -89,6 +89,7 @@ base-devel # for aur
 openssh # for ssh-keygen and more
 git
 tk # for gitk
+ntfs-3g # mkntfs util
 lxappearance # look and feel
 xorg-setxkbmap # switch keyboard layout
 xorg-xrandr # set display resolution, xrandr --output DisplayName --scale 1.25x1.25
