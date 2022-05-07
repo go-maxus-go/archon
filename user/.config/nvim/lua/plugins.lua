@@ -157,7 +157,14 @@ return require('packer').startup(function(use)
     }
     use {
       'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} }
+      requires = { {'nvim-lua/plenary.nvim'} },
+      config= function()
+        require('telescope').setup{
+          defaults = {
+            path_display={"smart"}
+          }
+        }
+      end
     }
     use 'folke/which-key.nvim'
     use {
@@ -179,19 +186,19 @@ return require('packer').startup(function(use)
         }
       end
     }
-    use {
-      'RRethy/vim-hexokinase',
-      run = 'make hexokinase',
-      config = function()
-        vim.cmd("let g:Hexokinase_highlighters = ['backgroundfull']")
-      end
-    }
+    -- use {
+    --   'RRethy/vim-hexokinase',
+    --   run = 'make hexokinase',
+    --   config = function()
+    --     vim.cmd("let g:Hexokinase_highlighters = ['backgroundfull']")
+    --   end
+    -- }
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       config = function()
         require'nvim-treesitter.configs'.setup {
-          ensure_installed = "maintained",
+          ensure_installed = {"bash", "c", "cmake", "cpp", "css", "dart", "html", "json", "json5"},
           sync_install = false,
           autopairs = {
             enable = true,
@@ -239,6 +246,7 @@ return require('packer').startup(function(use)
           "pyright",
           "sumneko_lua",
           "dartls",
+          "clangd",
         }
 
         for _, name in pairs(servers) do
@@ -256,6 +264,73 @@ return require('packer').startup(function(use)
         end)
       end
     }
+    use {
+      'hrsh7th/cmp-nvim-lsp',
+      opt = true,
+    }
+    use {
+      'hrsh7th/nvim-cmp',
+      opt = true,
+      require = {
+        'neovim/nvim-lspconfig',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp',
+        'hrsh7th/cmp-vsnip',
+        'hrsh7th/vim-vsnip',
+      },
+      config = function()
+        vim.cmd("set completeopt=menu,menuone,noselect")
+        local cmp = require("cmp")
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            end,
+          },
+          window = {},
+          mapping = cmp.mapping.preset.insert({
+            ['<C-j>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-k>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            ["<Tab>"] = cmp.mapping(function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              elseif vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+              elseif has_words_before() then
+                cmp.complete()
+              else
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+              end
+            end, { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(function()
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                feedkey("<Plug>(vsnip-jump-prev)", "")
+              end
+            end, { "i", "s" }),
+          }),
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'vsnip' },
+          }, {
+            { name = 'buffer' },
+          })
+        })
+        -- Setup lspconfig.
+        local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        require('lspconfig')['clangd'].setup {
+          capabilities = capabilities
+        }
+      end
+    }
+
     use {
       'puremourning/vimspector',
       opt = true,
@@ -287,32 +362,9 @@ return require('packer').startup(function(use)
       end
     }
     use {
-      'ms-jpq/coq_nvim',
-      opt = true,
-      branch = 'coq',
-      config = function()
-        vim.g.coq_settings = {
-          auto_start = "shut-up",
-          keymap = {
-            pre_select = false,
-            jump_to_mark = "",
-          },
-          display = {
-            icons = {
-              mode = 'none',
-            },
-            pum = {
-              fast_close = false,
-            },
-          },
-        }
-        vim.cmd("COQnow")
-      end
+      'sindrets/diffview.nvim',
+      requires = 'nvim-lua/plenary.nvim'
     }
-    -- use {
-    --   'sindrets/diffview.nvim',
-    --   requires = 'nvim-lua/plenary.nvim'
-    -- }
 
     -- Language plugins
     use {

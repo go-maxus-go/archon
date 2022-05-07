@@ -152,9 +152,10 @@ function setIdeMode()
         "blamer.nvim",
         "indent-blankline.nvim",
         "vim-gitgutter",
-        'coq_nvim',
         'nvim-treesitter',
         'nvim-ts-rainbow',
+        'cmp-nvim-lsp',
+        'nvim-cmp',
         -- Languages
         'flutter-tools.nvim',
     }
@@ -182,6 +183,7 @@ function setIdeMode()
     bind('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', noremapSilent)
     -- bind('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', noremapSilent)
     bind('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', noremapSilent)
+    bind('n', '<F4>', '<cmd>ClangdSwitchSourceHeader<CR>', noremapSilent)
 
     print("IDE Mode On")
 end
