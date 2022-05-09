@@ -142,6 +142,10 @@ local ideModeBindings = {
         n = {"<cmd>GitGutterNextHunk<CR>", "Next Hunk"},
         p = {"<cmd>GitGutterPrevHunk<CR>", "Prev Hunk"},
     },
+    i = {
+        name = "IDE",
+        f = {'<cmd>silent exec "!clang-format -i %"<CR>', "Clang Format"},
+    },
 }
 
 function setIdeMode()
@@ -154,6 +158,7 @@ function setIdeMode()
         "vim-gitgutter",
         'nvim-treesitter',
         'nvim-ts-rainbow',
+        -- Autocompletion
         'cmp-nvim-lsp',
         'nvim-cmp',
         -- Languages
@@ -190,7 +195,7 @@ end
 
 normalModeBindings["l"] = {
     name = "Load",
-    h = {setIdeMode, "Heroic Mode"},
+    i = {setIdeMode, "IDE"},
 }
 
 -- Setup normal mode leader bindings
