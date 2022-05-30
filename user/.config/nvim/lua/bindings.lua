@@ -22,7 +22,7 @@ for i = 1,9 do
     bind('n', '<A-'..i..'>', ':BufferGoto '..i..'<CR>', noremapSilent)
 end
 bind('n', '<A-0>', ':BufferLast<CR>', noremapSilent)
-bind('n', '<A-c>', ':BufferClose<CR>', noremapSilent)
+bind('n', '<A-c>', ':BufferClose!<CR>', noremapSilent)
 
 -- Swap ; and : for faster entering in command mode
 bind('n', ';', ':', noremap)
@@ -88,7 +88,11 @@ bind('n', '<F12>', '<Plug>VimspectorStepOut', silent)
 local normalModeBindings = {
     ["<leader>"] = "which_key_ignore",
     s = {"<cmd>:w<CR>", "Save File"},
-    e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
+    e = {
+        name = "File Explorer",
+        e = {"<cmd>NvimTreeToggle<CR>", "Toggle Explorer"},
+        f = {'<cmd>NvimTreeFindFile<CR>', "Find Current File"},
+    },
     w = {"<cmd>set wrap!<CR>", "Toggle Word Wrap"},
     j = {"<Plug>(easymotion-overwin-f)", "Jump to"},
     f = {
