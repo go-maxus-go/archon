@@ -83,9 +83,11 @@ return require('packer').startup(function(use)
         vim.cmd[[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
         require('nvim-tree').setup{
           view = {
+            width = 60,
             mappings = {
               list = {
                 { key = "?", action = "toggle_help" },
+                { key = "<C-e>", action = "" },
               }
             }
           }
@@ -126,15 +128,17 @@ return require('packer').startup(function(use)
           options = {
             icons_enabled = false,
             theme = 'solarized_dark',
-            component_separators = { left = '', right = ''},
-            section_separators = { left = '', right = ''},
+            -- component_separators = { left = '', right = ''},
+            -- section_separators = { left = '', right = ''},
+            component_separators = { left = '│', right = '│'},
+            section_separators = { left = '', right = ''},
             disabled_filetypes = {},
             always_divide_middle = true,
             globalstatus = false,
           },
           sections = {
             lualine_a = {'mode'},
-            lualine_b = {'branch', 'diff', 'diagnostics'},
+            lualine_b = {{'diagnostics', colored = false,}},
             lualine_c = {
               {
                 'filename',
