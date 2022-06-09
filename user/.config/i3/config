@@ -170,7 +170,7 @@ hide_edge_borders smart
 
 # My solarized dark version
 client.focused          #002b36 #2aa198 #fdf6e3 #859900
-client.focused_inactive #002b36 #073642 #839496 #073642
+client.focused_inactive #002b36 #2aa198 #fdf6e3 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
