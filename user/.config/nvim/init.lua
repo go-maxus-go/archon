@@ -38,6 +38,8 @@ vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.cmd([[set nofixendofline]])
+vim.cmd([[set noeol]])
 
 -- Case sensitivity
 vim.o.ignorecase = true
@@ -58,3 +60,7 @@ vim.cmd("let g:vimspector_install_gadgets = [ 'debugpy' ]")
 vim.api.nvim_set_var("blamer_date_format", "%d.%m.%y")
 vim.api.nvim_set_var("blamer_template",
     "<commit-short> <committer> <committer-time> <summary>")
+
+-- Ctrl + backspace delete previous word
+vim.cmd[[noremap! <C-BS> <C-w>]]
+vim.cmd[[noremap! <C-h> <C-w>]]
