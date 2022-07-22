@@ -152,15 +152,8 @@ bindsym $mod+r reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec ~/.config/archon/scripts/open_power_menu.sh
 
-new_window 1pixel
 new_window pixel 3
 hide_edge_borders smart
-
-# My old theme
-# client.focused          #4c7899 #7b99b7 #2e3440 #00897b
-# client.unfocused        #333333 #1a1d23 #888888 #292d2e
-# client.focused_inactive #333333 #1a1d23 #888888 #292d2e
-# client.urgent           #2f343a #900000 #ffffff #900000
 
 # Original solarized dark
 # client.focused          #002b36 #586e75 #fdf6e3 #268bd2
@@ -170,8 +163,8 @@ hide_edge_borders smart
 
 # My solarized dark version
 client.focused          #002b36 #2aa198 #fdf6e3 #859900
-client.focused_inactive #002b36 #2aa198 #fdf6e3 #073642
-client.unfocused        #002b36 #073642 #839496 #073642
+client.focused_inactive #002b36 #073642 #fdf6e3 #002b36
+client.unfocused        #002b36 #073642 #839496 #002b36
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
 bar {
