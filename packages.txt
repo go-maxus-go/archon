@@ -34,6 +34,7 @@ trash-cli
 # for the Internet
 networkmanager
 nm-connection-editor # gui
+network-manager-applet # tray icon
 
 # windows managers
 # qtile
