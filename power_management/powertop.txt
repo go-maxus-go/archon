@@ -1,0 +1,6 @@
+Power consumption monitor
+
+powertop
+
+sudo pacman -S powertop
+sudo powertop
