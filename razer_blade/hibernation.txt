@@ -1,0 +1,35 @@
+1. Add resume=/dev/nvme0n1p6 button.lid_init_state=open parameters to grub
+
+sudo vim /etc/default/grub
+
+Insert paramaters to GRUB_CMDLINE_LINUX
+GRUB_CMDLINE_LINUX="resume=$SWAP_PARTITION$ button.lid_init_state=open"
+
+To get swap partition:
+sudo fdisk -l
+
+Example of a swap partition
+/dev/nvme0n1p6 1741418496 1788295167  46876672  22.4G Linux swap
+
+/dev/nvme0n1p6 this is the $SWAP_PARTITION$
+
+3. Update grub config
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+4. Add resume hook to mkinitcpio
+sudo vim /etc/mkinitcpio.conf
+
+add "resume" between block and filesystems
+HOOKS=(base udev autodetect modconf block resume filesystems keyboard fsck)
+
+5. Update mkinitcpio
+sudo mkinitcpio -p linux
+
+6. Make lid close to hibernate
+
+sudo vim /etc/systemd/logind.conf
+
+Uncomment HandleLidSwitch and set to hibernate
+HandleLidSwitch=hibernate
+
+6. Reboot
