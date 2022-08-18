@@ -2,7 +2,10 @@ https://github.com/AdnanHodzic/auto-cpufreq
 Switches between performance and power safe modes depending on whther the laptop on battery.
 Turns on/off turbo boost mode depending on the current loading.
 
-yay -S auto-cpufreq-git
+yay -S auto-cpufreq
 
 systemctl start auto-cpufreq
 systemctl enable auto-cpufreq
+
+Check the config file format with the official documentation
+Copy config file auto-cpufreq.conf to /etc/auto-cpufreq.conf

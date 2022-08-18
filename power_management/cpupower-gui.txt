@@ -1,0 +1,6 @@
+GUI for checking cpu frequencies and cpu scaling governor
+
+yay -S cpupower-gui
+
+CLI version
+sudo pacman -S cpupower

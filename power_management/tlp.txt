@@ -1,3 +1,0 @@
-sudo pacman -S tlp
-systemctl start tlp.service
-systemctl enable tlp.service
