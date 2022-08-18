@@ -13,6 +13,7 @@ bash-completion # terminal auto completion
 
 # boot loader, show whish system to load
 grub
+grub-customizer # customize grub entries, to make linux-lts the default entry
 
 # login screen
 lightdm
