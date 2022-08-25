@@ -112,3 +112,4 @@ gnome-disk-utility # utils for USB disk formatting
 vlc # video player
 audacious # audio player
 light-locker # screen locker
+unclutter # automatically hide mouse cursor
