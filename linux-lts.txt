@@ -1,0 +1,15 @@
+1. Install linux-lts kernel
+sudo pacman -S linux-lts
+
+2. Remove subdirs in grub config, autosave the last selected option
+sudo vim /etc/default/grub
+
+Modify properties
+GRUB_DISABLE_SUBMENU=y
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+
+Update grub config
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+3. Reboot and select linux-lts in grub
