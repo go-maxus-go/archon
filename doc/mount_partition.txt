@@ -1,0 +1,15 @@
+Option 1. Use sudo gnome-disks
+
+Before mounting
+Select Edit Mount Options
+Change Mount Point to /mnt/mount_name
+Set Show In User Interface
+
+After that, mount the partition
+
+Option 2. Change sudo vim /etc/fstab
+Add line like
+
+/dev/sdaN /mnt/share auto nosuid,nodev,nofail,x-gvfs-show 0 0
+
+where sdaN - name of the partition
