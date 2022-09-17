@@ -1,0 +1,22 @@
+#!/bin/sh
+
+BACKUP_FOLDER=$1
+
+if [ "$BACKUP_FOLDER" = "" ];
+then
+    echo "Backup folder is not provided."
+    exit 1
+fi
+
+if [[ $UID != 0 ]]; then
+    echo "Please run this script with sudo:"
+    echo "sudo $0 $*"
+    exit 1
+fi
+
+DATE=$(date +%Y-%m-%d_%H-%M-%S)
+DST="$BACKUP_FOLDER/$DATE"
+
+SRC="/"
+
+rsync -aAXHv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","$DST","/home/*"} $SRC $DST
