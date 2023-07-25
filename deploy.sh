@@ -9,6 +9,5 @@ git submodule update --init --recursive
 cd -
 
 python $dir/install_packages.py
-sh $dir/setlayout/deploy.sh
 sh $dir/copy_configs.sh
 sh $dir/aur/install_aur_packages.sh
