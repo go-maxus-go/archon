@@ -1,12 +1,18 @@
 #!/bin/bash
 
-dir=$(cd "$(dirname "$0")" && pwd)
+packages=(
+    https://aur.archlinux.org/brave.git
+    https://aur.archlinux.org/nomacs.git
+    https://aur.archlinux.org/optimus-manager.git
+    https://aur.archlinux.org/optimus-manager-qt.git
+)
 
-packages=(brave)
-
+mkdir ~/AUR
 for package in ${packages[@]}; do
-	cd $dir/$package
-	git pull origin master
-	makepkg -si --noconfirm
-	cd -
+    basename=$(basename $package)
+    repo_name=${basename%.*}
+    package_dir=~/AUR/$repo_name
+
+    git clone $package $package_dir || (cd $package_dir ; git pull)
+    (cd ~/AUR/$repo_name && makepkg -si --noconfirm)
 done
