@@ -3,6 +3,12 @@
 # install drivers and utilities for nvidia
 sudo pacman -S nvidia nvidia-utils nvidia-settings
 
+# for linux-lts
+sudo pacman -S nvidia-lts nvidia-utils nvidia-settings
+
+# This package also might be needed
+sudo pacman -S linux-lts-headers
+
 # install switcher to nvidia video card
 git clone https://aur.archlinux.org/optimus-manager.git
 cd optimus-manager
