@@ -1,7 +1,7 @@
 #!/bin/bash
 
 packages=(
-    https://aur.archlinux.org/brave.git
+    https://aur.archlinux.org/brave-bin.git
     https://aur.archlinux.org/nomacs.git
     https://aur.archlinux.org/optimus-manager.git
     https://aur.archlinux.org/optimus-manager-qt.git
