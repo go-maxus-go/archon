@@ -1,0 +1,127 @@
+## Change terminal brightness
+
+Here you can find the maximum value for brightness.
+/sys/class/backlight/acpi_video0/max_brightness
+
+Change the brightness value here. <acpi_video0> might have a different name.
+/sys/class/backlight/acpi_video0/brightness
+
+
+## Connect to wifi
+
+Open interactive prompt [iwd]
+iwctl
+
+Connect to wifi. <name> is a device name. <SSID> is a name of the spot.
+station <name> connect <SSID>
+
+### Additional commands.
+
+Display the device list.
+device list
+
+If the device or its corresponding adapter is turned off, turn it on:
+device name set-property Powered on
+
+Then, to initiate a scan for networks (note that this command will not output anything):
+station name scan
+
+You can then list all available networks:
+station name get-networks
+
+## Partitioning
+List partitions
+fdisk -l
+
+Set partitions
+fdisk
+
+## Make file system
+
+PARTITION_BOOT=/dev/sda1
+PARTITION_SWAP=/dev/sda2
+PARTITION_LINUX=/dev/sda3
+
+mkfs.fat -F32 $PARITITON_BOOT
+mkswap $PARTITION_SWAP
+swapon $PARTITION_SWAP
+mkfs.ext4 $PARTITION_LINUX
+
+## Base Install
+LINUX_CORE=linux-lts # LTS arch
+
+mount $PARTITION_LINUX /mnt
+pacstrap /mnt base linux-lts linux-firmware vim
+genfstab -U /mnt >> /mnt/etc/fstab
+
+## Chroot
+arch-chroot /mnt
+
+### time
+REGION=Europe
+CITY=Berlin
+ln -sf /usr/share/zoneinfo/$REGION/$CITY /etc/localtime
+hwclock --systohc
+
+### Locale
+Uncomment "en_US.UTF-8 UTF-8" or add this line to the file.
+vim /etc/locale.gen
+locale-gen
+
+### Hosts
+HOSTNAME=archmachine
+echo $HOSTNAME > /etc/hostname
+
+vim /etc/hosts
+Add lines below to the /etc/hosts
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	$HOSTNAME
+
+## Users and passwords
+Set root password
+passwd
+
+$USERNAME=user
+useradd -m $USERNAME
+passwd $USERNAME
+usermod -aG wheel,audio,video,optical,storage $USERNAME
+
+## Sudo:
+pacman -S sudo
+
+Uncomment wheel group. Or add $wheel ALL=(ALL:ALL) ALL to /etc/sudoers
+visudo
+
+## GRUB
+pacman -S grub efibootmgr dosfstools os-prober mtools (if doing UEFI)
+
+mkdir /boot/efi
+mount $PARTITION_BOOT /boot/efi
+grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
+
+OR ??
+grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck (if doing UEFI)
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+## Networking
+pacman -S networkmanager
+systemctl enable NetworkManager
+
+## Reboot
+Exit chroot
+exit
+
+Unmount /mnt
+umount /mnt -l
+
+reboot
+
+# Connect to wifi from Network Manager
+nmcli device wifi connect <SSID> password <password>
+
+# Install archon
+sudo pacman -S git
+git clone https://github.com/go-maxus-go/archon.git
+sh archon/install.sh

@@ -4,9 +4,7 @@ sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm -S python
 
 dir=$(cd "$(dirname "$0")" && pwd)
-cd $dir
-git submodule update --init --recursive
-cd -
+sh $dir/aur/install_aur_packages.sh
 
 python $dir/install_packages.py
 sh $dir/copy_configs.sh
