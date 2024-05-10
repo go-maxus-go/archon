@@ -22,8 +22,8 @@ sudo vim /etc/mkinitcpio.conf
 add "resume" between block and filesystems
 HOOKS=(base udev autodetect modconf block resume filesystems keyboard fsck)
 
-5. Update mkinitcpio
-sudo mkinitcpio -p linux
+5. Update mkinitcpio (or linux if not LTS)
+sudo mkinitcpio -p linux-lts
 
 6. Make lid close to hibernate
 

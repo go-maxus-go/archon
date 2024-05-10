@@ -1,0 +1,5 @@
+sudo vim /etc/default/grub
+
+Set GRUB_GFXMODE=1280x800
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg

@@ -21,7 +21,7 @@ lightdm-gtk-greeter # ?
 lightdm-gtk-greeter-settings # ?
 
 # task manager
-ksysguard
+# ksysguard
 
 # file manager
 nemo

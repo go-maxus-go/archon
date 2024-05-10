@@ -1,4 +1,5 @@
 Edit etc/grub.d/40_custom and add:
+sudo vim /etc/grub.d/40_custom
 
 menuentry 'Windows 10' {
     search --fs-uuid --no-floppy --set=root $UUID$
@@ -15,3 +16,6 @@ sudo blkid $partition$
 
 Update GRUB config
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+If Windows EFI partition was formatted, here is how to restore it:
+https://wiki.archlinux.org/title/Dual_boot_with_Windows#Restoring_an_accidentally_deleted_EFI_system_partition
