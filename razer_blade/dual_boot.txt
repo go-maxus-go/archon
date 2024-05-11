@@ -1,3 +1,4 @@
+## Add a windows entry to GRUB
 Edit etc/grub.d/40_custom and add:
 sudo vim /etc/grub.d/40_custom
 
@@ -17,5 +18,74 @@ sudo blkid $partition$
 Update GRUB config
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-If Windows EFI partition was formatted, here is how to restore it:
-https://wiki.archlinux.org/title/Dual_boot_with_Windows#Restoring_an_accidentally_deleted_EFI_system_partition
+## If Windows EFI partition was formatted, here is how to restore it:
+
+Download Windows 10
+https://www.microsoft.com/en-us/software-download/windows10
+
+Make a bootable usb
+sudo gnome-disks
+
+Reboot and select the bootable usb
+Press SHIFT + F10 to open console
+
+Enter following commands:
+Open disk parttition tool
+DiskParX:\Sources> diskpart
+
+Show available disks
+DISKPART> list disk
+
+Select the appropriate hard drive by typing:
+DISKPART> select disk number
+
+Make sure that there is a partition of type system (the EFI system partition):
+DISKPART> list partition
+
+Select this partition:
+DISKPART> select partition number
+
+and assign a temporary drive letter to it:
+DISKPART> assign letter=G:
+
+To make sure that drive letter is correctly assigned:
+DISKPART> list vol
+
+ Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+ ----------  ---  -----------  -----  ----------  -------  ---------  --------
+ Volume 0     E                       DVD-ROM         0 B  No Media
+ Volume 1     C                NTFS   Partition    195 GB  Healthy    Boot
+ Volume 2         WINRE        NTFS   Partition    400 MB  Healthy    Hidden
+ Volume 3     G                FAT32  Partition    499 MB  Healthy    System
+
+Close diskpart:
+DISKPART> exit
+
+Navigate to C:\ (or what your system drive letter is):
+X:\Sources> cd /d C:\
+
+Next is the "magic" command, which recreate the BCD store (with /s for the mount point, /f for firmware type, optionally add /v for verbose):
+C:\> bcdboot C:\Windows /s G: /f UEFI
+
+Remove the assigned disk letter
+diskpart
+list vol
+
+ Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+ ----------  ---  -----------  -----  ----------  -------  ---------  --------
+ Volume 0     E                       DVD-ROM         0 B  No Media
+ Volume 1     C                NTFS   Partition    195 GB  Healthy    Boot
+ Volume 2         WINRE        NTFS   Partition    400 MB  Healthy    Hidden
+ Volume 3     G                FAT32  Partition    499 MB  Healthy    System
+
+Select volume
+Sel  Vol  4
+
+Remove letter
+Remove  Letter=G
+
+Exit
+
+See more https://wiki.archlinux.org/title/Dual_boot_with_Windows#Restoring_an_accidentally_deleted_EFI_system_partition
+
+
