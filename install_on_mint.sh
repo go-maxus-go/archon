@@ -9,7 +9,8 @@ standard_packages=(
     fonts-font-awesome
 
     # Terminal
-    alacritty  # Terminal
+    # alacritty  # Don't use it because of an annoying bug with long lines
+    kitty  # Terminal
     bash-completion # terminal auto completion
 
     # Terminal file manager
@@ -31,6 +32,7 @@ standard_packages=(
     brightnessctl  # CLI for changing brightness
     curl  # CLI for transferring data
     gitk  # UI for git
+    gsimplecal  # Calendar
 )
 
 sudo apt install "${standard_packages[@]}"

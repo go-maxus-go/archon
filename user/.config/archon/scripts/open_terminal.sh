@@ -1,8 +1,10 @@
 #!/bin/bash
 
+terminal=kitty
+
 if [ -z $@ ]
 then
-    alacritty
+    $terminal
 else
-    alacritty -e $@
+    $terminal -e $@
 fi

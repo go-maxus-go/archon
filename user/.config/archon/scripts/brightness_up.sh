@@ -4,4 +4,4 @@ devices="$(brightnessctl -lm)"
 
 dir=$(cd "$(dirname "$0")" && pwd)
 
-python $dir/change_brightness.py up $devices
+python3 $dir/change_brightness.py up $devices
