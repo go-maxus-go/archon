@@ -1,7 +1,9 @@
 #!/bin/bash
 
 standard_packages=(
+    # i3 windows manager
     i3-wm  # Windows Manager
+    fonts-dejavu  # Fonts for i3status
 
     # Terminal
     alacritty  # Terminal
