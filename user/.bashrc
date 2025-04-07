@@ -66,9 +66,9 @@ parse_git_branch() {
   fi
 }
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[01;31m\]$(parse_git_branch)\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='\[\033[01;31m\]$(parse_git_branch)\[\033[01;34m\]\w\[\033[00m\] '
 else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch) '
 fi
 
 unset color_prompt force_color_prompt
@@ -122,6 +122,7 @@ bind 'set completion-ignore-case on'
 
 alias gg=gitk
 alias v=nvim
+alias r=ranger
 
 export SUDO_EDITOR="nvim"
 alias sudov="sudo -e $1"
