@@ -46,7 +46,8 @@ return require('packer').startup(function(use)
       'lifepillar/vim-solarized8',
       config = function()
         vim.cmd[[set background=dark]]
-        vim.cmd[[colorscheme solarized8]]
+        vim.cmd[[autocmd vimenter * ++nested colorscheme solarized8]]
+        -- vim.cmd[[colorscheme solarized8]]
       end
     }
     -- use {
@@ -83,13 +84,13 @@ return require('packer').startup(function(use)
         vim.cmd[[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
         require('nvim-tree').setup{
           view = {
-            width = 60,
-            mappings = {
-              list = {
-                { key = "?", action = "toggle_help" },
-                { key = "<C-e>", action = "" },
-              }
-            }
+            width = 40,
+--             mappings = {
+--               list = {
+--                 { key = "?", action = "toggle_help" },
+--                 { key = "<C-e>", action = "" },
+--               }
+--             }
           }
         }
       end
@@ -100,19 +101,50 @@ return require('packer').startup(function(use)
     use {
       'karb94/neoscroll.nvim',
       config = function()
-        require('neoscroll').setup{
-          easing_function = nil,
-          mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', 'zz'},
+        neoscroll = require('neoscroll')
+        local keymap = {
+          ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 250 }) end;
+          ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 250 }) end;
+          ["<C-b>"] = function() neoscroll.ctrl_b({ duration = 450 }) end;
+          ["<C-f>"] = function() neoscroll.ctrl_f({ duration = 450 }) end;
+          ["<C-y>"] = function() neoscroll.scroll(-0.1, { move_cursor=false; duration = 100 }) end;
+          ["<C-e>"] = function() neoscroll.scroll(0.1, { move_cursor=false; duration = 100 }) end;
+          ["zt"]    = function() neoscroll.zt({ half_win_duration = 250 }) end;
+          ["zz"]    = function() neoscroll.zz({ half_win_duration = 250 }) end;
+          ["zb"]    = function() neoscroll.zb({ half_win_duration = 250 }) end;
         }
-        require('neoscroll.config').set_mappings{
-          ['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}},
-          ['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '100'}},
-          ['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '100'}},
-          ['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '100'}},
-          ['<C-y>'] = {'scroll', {'-3', 'false', '30'}},
-          ['<C-e>'] = {'scroll', { '3', 'false', '30'}},
-          ['zz']    = {'zz', {'100'}},
-        }
+        local modes = { 'n', 'v', 'x' }
+        for key, func in pairs(keymap) do
+          vim.keymap.set(modes, key, func)
+        end
+--         require('neoscroll').setup{
+--           -- easing_function = nil,
+--           --- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', 'zz'},
+--           local keymap = {
+--             ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 250 }) end;
+--             ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 250 }) end;
+--             ["<C-b>"] = function() neoscroll.ctrl_b({ duration = 450 }) end;
+--             ["<C-f>"] = function() neoscroll.ctrl_f({ duration = 450 }) end;
+--             ["<C-y>"] = function() neoscroll.scroll(-0.1, { move_cursor=false; duration = 100 }) end;
+--             ["<C-e>"] = function() neoscroll.scroll(0.1, { move_cursor=false; duration = 100 }) end;
+--             ["zt"]    = function() neoscroll.zt({ half_win_duration = 250 }) end;
+--             ["zz"]    = function() neoscroll.zz({ half_win_duration = 250 }) end;
+--             ["zb"]    = function() neoscroll.zb({ half_win_duration = 250 }) end;
+--           }
+--           local modes = { 'n', 'v', 'x' }
+--           for key, func in pairs(keymap) do
+--             vim.keymap.set(modes, key, func)
+--           end
+--         }
+--         require('neoscroll.config').set_mappings{
+--           ['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}},
+--           ['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '100'}},
+--           ['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '100'}},
+--           ['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '100'}},
+--           ['<C-y>'] = {'scroll', {'-3', 'false', '30'}},
+--           ['<C-e>'] = {'scroll', { '3', 'false', '30'}},
+--           ['zz']    = {'zz', {'100'}},
+--         }
       end
     }
     use {
@@ -216,7 +248,10 @@ return require('packer').startup(function(use)
         }
       end
     }
-    use 'folke/which-key.nvim'
+    use {
+      'folke/which-key.nvim',
+      requires = { {'nvim-tree/nvim-web-devicons'}, {'echasnovski/mini.nvim'} }
+    }
     use {
       "petertriho/nvim-scrollbar",
       config = function()
@@ -243,187 +278,187 @@ return require('packer').startup(function(use)
     --     vim.cmd("let g:Hexokinase_highlighters = ['backgroundfull']")
     --   end
     -- }
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      config = function()
-        require'nvim-treesitter.configs'.setup {
-          ensure_installed = {"bash", "c", "cmake", "cpp", "css", "dart", "html", "json", "json5"},
-          sync_install = false,
-          autopairs = {
-            enable = true,
-          },
-          highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = true,
-          },
-          indent = { enable = true, disable = { "yaml" } },
-          context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-          },
-        }
-      end
-    }
-    use {
-      'p00f/nvim-ts-rainbow',
-      config = function()
-        require("nvim-treesitter.configs").setup {
-          rainbow = {
-            enable = true,
-            extended_mode = true,
-            max_file_lines = nil,
-          }
-        }
-      end
-    }
+--     use {
+--       'nvim-treesitter/nvim-treesitter',
+--       run = ':TSUpdate',
+--       config = function()
+--         require'nvim-treesitter.configs'.setup {
+--           ensure_installed = {"bash", "c", "cmake", "cpp", "css", "dart", "html", "json", "json5"},
+--           sync_install = false,
+--           autopairs = {
+--             enable = true,
+--           },
+--           highlight = {
+--             enable = true,
+--             additional_vim_regex_highlighting = true,
+--           },
+--           indent = { enable = true, disable = { "yaml" } },
+--           context_commentstring = {
+--             enable = true,
+--             enable_autocmd = false,
+--           },
+--         }
+--       end
+--     }
+--     use {
+--       'p00f/nvim-ts-rainbow',
+--       config = function()
+--         require("nvim-treesitter.configs").setup {
+--           rainbow = {
+--             enable = true,
+--             extended_mode = true,
+--             max_file_lines = nil,
+--           }
+--         }
+--       end
+--     }
     use 'itchyny/vim-cursorword'
 
     -- IDE plugins
-    use {
-      'neovim/nvim-lspconfig',
-      opt = true,
-    }
-    use {
-      "williamboman/nvim-lsp-installer",
-      requires = 'neovim/nvim-lspconfig',
-      opt = true,
-      config = function()
-        local lsp_installer = require "nvim-lsp-installer"
-
-        -- Include the servers you want to have installed by default below
-        local servers = {
-          "pyright",
-          "sumneko_lua",
-          "dartls",
-          "clangd",
-        }
-
-        for _, name in pairs(servers) do
-          local server_is_found, server = lsp_installer.get_server(name)
-          if server_is_found then
-            if not server:is_installed() then
-              print("Installing " .. name)
-              server:install()
-            end
-          end
-        end
-
-        lsp_installer.on_server_ready(function(server)
-          server:setup({})
-        end)
-      end
-    }
-    use {
-      'hrsh7th/cmp-nvim-lsp',
-      opt = true,
-    }
-    use {
-      'hrsh7th/nvim-cmp',
-      opt = true,
-      require = {
-        'neovim/nvim-lspconfig',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/cmp-vsnip',
-        'hrsh7th/vim-vsnip',
-      },
-      config = function()
-        vim.cmd("set completeopt=menu,menuone,noselect")
-        local cmp = require("cmp")
-        cmp.setup({
-          snippet = {
-            expand = function(args)
-              vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            end,
-          },
-          window = {},
-          mapping = cmp.mapping.preset.insert({
-            ['<C-j>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-k>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              -- elseif vim.fn["vsnip#available"](1) == 1 then
-              --   feedkey("<Plug>(vsnip-expand-or-jump)", "")
-              -- elseif has_words_before() then
-              --   cmp.complete()
-              else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-              end
-            end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function()
-              if cmp.visible() then
-                cmp.select_prev_item()
-              -- elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-              --   feedkey("<Plug>(vsnip-jump-prev)", "")
-              end
-            end, { "i", "s" }),
-          }),
-          sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'vsnip' },
-          }, {
-            { name = 'buffer' },
-          })
-        })
-        -- Setup lspconfig.
-        local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-        require('lspconfig')['clangd'].setup {
-          capabilities = capabilities
-        }
-      end
-    }
-
-    use {
-      'puremourning/vimspector',
-      opt = true,
-      config = function()
-        vim.cmd("packadd! vimspector")
-      end
-    }
-    use {
-      'APZelos/blamer.nvim',
-      opt = true,
-      config = function()
-        vim.cmd("BlamerShow")
-      end
-    }
-    use {
-      "lukas-reineke/indent-blankline.nvim",
-      opt = true,
-      config = function()
-        require("indent_blankline").setup {}
-      end
-    }
-    use {
-      "airblade/vim-gitgutter",
-      opt = true,
-      config = function()
-        vim.cmd("autocmd! gitgutter CursorHold,CursorHoldI")
-        vim.cmd("autocmd BufWritePost * :GitGutter")
-        vim.cmd("GitGutterAll")
-      end
-    }
-    use {
-      'sindrets/diffview.nvim',
-      requires = 'nvim-lua/plenary.nvim'
-    }
-
-    -- Language plugins
-    use {
-      'akinsho/flutter-tools.nvim',
-      opt = true,
-      requires = 'nvim-lua/plenary.nvim',
-      config = function()
-        require("flutter-tools").setup{}
-      end
-    }
+--     use {
+--       'neovim/nvim-lspconfig',
+--       opt = true,
+--     }
+--     use {
+--       "williamboman/nvim-lsp-installer",
+--       requires = 'neovim/nvim-lspconfig',
+--       opt = true,
+--       config = function()
+--         local lsp_installer = require "nvim-lsp-installer"
+--
+--         -- Include the servers you want to have installed by default below
+--         local servers = {
+--           "pyright",
+--           "sumneko_lua",
+--           "dartls",
+--           "clangd",
+--         }
+--
+--         for _, name in pairs(servers) do
+--           local server_is_found, server = lsp_installer.get_server(name)
+--           if server_is_found then
+--             if not server:is_installed() then
+--               print("Installing " .. name)
+--               server:install()
+--             end
+--           end
+--         end
+--
+--         lsp_installer.on_server_ready(function(server)
+--           server:setup({})
+--         end)
+--       end
+--     }
+--     use {
+--       'hrsh7th/cmp-nvim-lsp',
+--       opt = true,
+--     }
+--     use {
+--       'hrsh7th/nvim-cmp',
+--       opt = true,
+--       require = {
+--         'neovim/nvim-lspconfig',
+--         'hrsh7th/cmp-nvim-lsp',
+--         'hrsh7th/cmp-buffer',
+--         'hrsh7th/cmp-path',
+--         'hrsh7th/cmp-cmdline',
+--         'hrsh7th/cmp-vsnip',
+--         'hrsh7th/vim-vsnip',
+--       },
+--       config = function()
+--         vim.cmd("set completeopt=menu,menuone,noselect")
+--         local cmp = require("cmp")
+--         cmp.setup({
+--           snippet = {
+--             expand = function(args)
+--               vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+--             end,
+--           },
+--           window = {},
+--           mapping = cmp.mapping.preset.insert({
+--             ['<C-j>'] = cmp.mapping.scroll_docs(-4),
+--             ['<C-k>'] = cmp.mapping.scroll_docs(4),
+--             ['<C-Space>'] = cmp.mapping.complete(),
+--             ['<C-e>'] = cmp.mapping.abort(),
+--             ['<CR>'] = cmp.mapping.confirm({ select = true }),
+--             ["<Tab>"] = cmp.mapping(function(fallback)
+--               if cmp.visible() then
+--                 cmp.select_next_item()
+--               -- elseif vim.fn["vsnip#available"](1) == 1 then
+--               --   feedkey("<Plug>(vsnip-expand-or-jump)", "")
+--               -- elseif has_words_before() then
+--               --   cmp.complete()
+--               else
+--                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+--               end
+--             end, { "i", "s" }),
+--             ["<S-Tab>"] = cmp.mapping(function()
+--               if cmp.visible() then
+--                 cmp.select_prev_item()
+--               -- elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+--               --   feedkey("<Plug>(vsnip-jump-prev)", "")
+--               end
+--             end, { "i", "s" }),
+--           }),
+--           sources = cmp.config.sources({
+--             { name = 'nvim_lsp' },
+--             { name = 'vsnip' },
+--           }, {
+--             { name = 'buffer' },
+--           })
+--         })
+--         -- Setup lspconfig.
+--         local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+--         require('lspconfig')['clangd'].setup {
+--           capabilities = capabilities
+--         }
+--       end
+--     }
+--
+--     use {
+--       'puremourning/vimspector',
+--       opt = true,
+--       config = function()
+--         vim.cmd("packadd! vimspector")
+--       end
+--     }
+--     use {
+--       'APZelos/blamer.nvim',
+--       opt = true,
+--       config = function()
+--         vim.cmd("BlamerShow")
+--       end
+--     }
+--     use {
+--       "lukas-reineke/indent-blankline.nvim",
+--       opt = true,
+--       config = function()
+--         require("indent_blankline").setup {}
+--       end
+--     }
+--     use {
+--       "airblade/vim-gitgutter",
+--       opt = true,
+--       config = function()
+--         vim.cmd("autocmd! gitgutter CursorHold,CursorHoldI")
+--         vim.cmd("autocmd BufWritePost * :GitGutter")
+--         vim.cmd("GitGutterAll")
+--       end
+--     }
+--     use {
+--       'sindrets/diffview.nvim',
+--       requires = 'nvim-lua/plenary.nvim'
+--     }
+--
+--     -- Language plugins
+--     use {
+--       'akinsho/flutter-tools.nvim',
+--       opt = true,
+--       requires = 'nvim-lua/plenary.nvim',
+--       config = function()
+--         require("flutter-tools").setup{}
+--       end
+--     }
 
     -- Automatically set up configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then
