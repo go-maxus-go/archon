@@ -30,6 +30,7 @@ standard_packages=(
     grub-customizer  # GUI for customizing GRUB
     brightnessctl  # CLI for changing brightness
     curl  # CLI for transferring data
+    gitk  # UI for git
 )
 
 sudo apt install "${standard_packages[@]}"
