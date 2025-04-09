@@ -1,7 +1,9 @@
 #!/bin/bash
 
 standard_packages=(
+    # Windows Manager
     i3-wm  # Windows Manager
+    python3-i3ipc  # For autosplit script
 
     # Fonts
     fonts-dejavu
@@ -39,3 +41,6 @@ sudo apt install "${standard_packages[@]}"
 
 # Install Brave browser
 curl -fsS https://dl.brave.com/install.sh | sh
+
+# Install Ghostty terminalvidia (GL) drivers
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"

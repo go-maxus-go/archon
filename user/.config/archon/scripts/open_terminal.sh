@@ -1,6 +1,6 @@
 #!/bin/bash
 
-terminal=kitty
+terminal=ghostty
 
 if [ -z $@ ]
 then
