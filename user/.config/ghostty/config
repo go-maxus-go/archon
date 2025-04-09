@@ -48,6 +48,7 @@ theme = iTerm2 Solarized Dark
 selection-invert-fg-bg = true
 font-size = 13
 adjust-cursor-thickness = 2
+app-notifications = false
 
 keybind = ctrl+enter=unbind
 
